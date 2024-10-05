@@ -1,0 +1,147 @@
+.offers-section {
+    background-color: #f4f4f4;
+    padding: 40px 0;
+  }
+  
+  .offer-card img {
+    height: 250px; /* Adjust based on your image size */
+    object-fit: cover;
+  }
+  
+  .offer-card {
+    transition: transform 0.3s;
+  }
+  
+  .offer-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .offer-card button {
+    border-color: #6c757d;
+    color: #6c757d;
+  }
+  
+  .offer-card button:hover {
+    background-color: #6c757d;
+    color: white;
+  }
+  /* Basic styling for the container */
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+/* Banner Image Styling */
+img.w-100 {
+  max-height: 600px;
+  object-fit: cover;
+}
+
+/* Stay With Us Section */
+.text-center h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.text-center button {
+  padding: 10px 30px;
+  font-size: 1.2rem;
+}
+
+/* Offers Section */
+.offers-section {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+}
+
+.offers-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.offer-card {
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.offer-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the card image to ensure consistency */
+.offer-card img {
+  height: 300px; /* Adjust based on your image size */
+  object-fit: cover;
+}
+
+.offer-card button {
+  border-color: #333;
+  color: #333;
+}
+
+.offer-card button:hover {
+  background-color: #333;
+  color: white;
+}
+
+/* Room Types Section */
+.text-center .mb-4 {
+  margin-bottom: 30px;
+}
+
+.text-center .card {
+  transition: transform 0.3s;
+  box-shadow: none;
+}
+
+.text-center .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.text-center .card img {
+  height: 250px; /* Adjust this based on the size of your images */
+  object-fit: cover;
+}
+
+.text-center .card-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 15px;
+}
+
+/* Buttons */
+button {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .text-center h2 {
+    font-size: 2rem;
+  }
+
+  .offers-section h2 {
+    font-size: 2rem;
+  }
+
+  .offer-card img, .text-center .card img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .text-center h2 {
+    font-size: 1.8rem;
+  }
+
+  .offers-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .offer-card img, .text-center .card img {
+    height: 150px;
+  }
+}
