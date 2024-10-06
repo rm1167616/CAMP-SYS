@@ -7,6 +7,10 @@ import hotle2 from '../images/hotle2.avif';
 import hotle3 from '../images/hotle3.jpg';
 import hotle4 from '../images/hotle4.webp';
 import hotle6 from '../images/hotle6.jpg';
+import hotle7 from '../images/hotle7.webp';
+import hotle8 from '../images/hotle8.webp';
+import hotle9 from '../images/hotle9.jpg';
+import hotle10 from '../images/hotle10.jpg';
 import Header from '../shared/header/header'; 
 import Footer from '../shared/footer/footer'; 
 
@@ -43,35 +47,45 @@ const HomePage = () => {
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={hotle2} alt="Hotel 2" />
-          <Carousel.Caption>
-            <h2>Stay With Us</h2>
-            <Button variant="warning" size="lg">
-              Check Availability
-            </Button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={hotle3} alt="Hotel 3" />
-          <Carousel.Caption>
-            <h2>Stay With Us</h2>
-            <Button variant="warning" size="lg">
-              Check Availability
-            </Button>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={hotle4} alt="Hotel 4" />
-          <Carousel.Caption>
-            <h2>Stay With Us</h2>
-            <Button variant="warning" size="lg">
-              Check Availability
-            </Button>
-          </Carousel.Caption>
-        </Carousel.Item>
+        
         <Carousel.Item>
           <img className="d-block w-100" src={hotle6} alt="Hotel 6" />
+          <Carousel.Caption>
+            <h2>Stay With Us</h2>
+            <Button variant="warning" size="lg">
+              Check Availability
+            </Button>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={hotle7} alt="Hotel 6" />
+          <Carousel.Caption>
+            <h2>Stay With Us</h2>
+            <Button variant="warning" size="lg">
+              Check Availability
+            </Button>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={hotle8} alt="Hotel 6" />
+          <Carousel.Caption>
+            <h2>Stay With Us</h2>
+            <Button variant="warning" size="lg">
+              Check Availability
+            </Button>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={hotle9} alt="Hotel 6" />
+          <Carousel.Caption>
+            <h2>Stay With Us</h2>
+            <Button variant="warning" size="lg">
+              Check Availability
+            </Button>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="d-block w-100" src={hotle10} alt="Hotel 6" />
           <Carousel.Caption>
             <h2>Stay With Us</h2>
             <Button variant="warning" size="lg">
@@ -87,7 +101,7 @@ const HomePage = () => {
 {/* Why Book Direct and Benefits Section */}
 <Container fluid className="d-flex align-items-center justify-content-center my-5">
         <Row className="w-100">
-          <Col xs={12} md={6} className="text-left py-5 bg-dark text-light ">
+          <Col xs={12} md={6} className="text-center py-5 bg-dark text-light ">
             <h3>Why Book Direct?</h3>
             <p>Choose Direct Rate when booking your room</p>
             <Button variant="warning" size="lg">
