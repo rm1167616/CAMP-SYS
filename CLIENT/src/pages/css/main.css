@@ -145,3 +145,125 @@ button {
     height: 150px;
   }
 }
+
+/* General styles */
+body {
+  background-color: #f8f9fa;
+}
+
+/* Custom Button Styling */
+.custom-btn {
+  background-color: #b22222; /* Red Gold */
+  color: #000; /* Black */
+  border: none;
+}
+
+.custom-btn:hover {
+  background-color: #a30000; /* Darker Red Gold on hover */
+  color: #fff; /* White on hover */
+}
+
+/* Card Styling */
+.custom-card {
+  border: 2px solid #000; /* Black Border */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+.custom-card:hover {
+  transform: scale(1.05); /* Slightly increase size on hover */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+/* Text styling inside card */
+.custom-card .card-title {
+  font-weight: bold;
+  color: #b22222; /* Red Gold */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 780px) {
+  h2, h3 {
+    font-size: 1.5rem;
+  }
+
+  .custom-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  
+  .custom-card {
+    margin-bottom: 20px;
+  }
+}
+.home-bg {
+  background-image: url('../images/homebg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 50vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-bg-text {
+  text-align: center;
+  color: white;
+}
+
+.about-rooms {
+  margin: 3rem 0;
+}
+
+.navbar-custom {
+  position: relative;
+  z-index: 1000; /* Ensure it stays above the background */
+}
+.benefits-section{
+
+}
+
+.benefits-section .benefits p:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.about-rooms-section {
+  background-color: #f8f9fa;
+  padding: 50px;
+}
+
+.custom-list li {
+  padding: 10px 0;
+  font-size: 18px;
+}
+
+.custom-list li span {
+  margin-right: 10px;
+}
+.benefits-section {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.benefits-section.show {
+  opacity: 1;
+}
+
+.benefits-section .benefits p {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.benefits-section .benefits p:nth-child(1) {
+  transition-delay: 0.5s;
+}
+
+.benefits-section .benefits p:nth-child(2) {
+  transition-delay: 1s;
+}
+
+.benefits-section .benefits p:nth-child(3) {
+  transition-delay: 1.5s;
+}
+
+/* Add more transition delays for other items */
