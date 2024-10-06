@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, Card, Carousel } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/main.css';
@@ -7,14 +7,32 @@ import hotle2 from '../images/hotle2.avif';
 import hotle3 from '../images/hotle3.jpg';
 import hotle4 from '../images/hotle4.webp';
 import hotle6 from '../images/hotle6.jpg';
+import Header from '../shared/header/header'; 
 
 const HomePage = () => {
+  const [benefitsVisible, setBenefitsVisible] = useState(false);
+  const [activeBenefitIndex, setActiveBenefitIndex] = useState(0);
+
+  useEffect(() => {
+    // Show benefits section after a delay
+    setTimeout(() => setBenefitsVisible(true), 500);
+
+    // Reveal each benefit one after another
+    if (benefitsVisible) {
+      const interval = setInterval(() => {
+        setActiveBenefitIndex(prevIndex => prevIndex + 1);
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, [benefitsVisible]);
+
   return (
     <>
+      <Header />
 
 
       {/* Carousel Section */}
-      <Carousel controls={false} indicators={false} interval={4000}>
+      <Carousel controls={false} indicators={false} interval={4000} >
         <Carousel.Item>
           <img className="d-block w-100" src={hotle1} alt="Hotel 1" />
           <Carousel.Caption>
@@ -65,7 +83,8 @@ const HomePage = () => {
 
 
       {/* Why Book Direct and Benefits Section */}
-      <Container fluid className="d-flex align-items-center justify-content-center my-5">
+{/* Why Book Direct and Benefits Section */}
+<Container fluid className="d-flex align-items-center justify-content-center my-5">
         <Row className="w-100">
           <Col xs={12} md={6} className="text-left py-5 bg-dark text-light ">
             <h3>Why Book Direct?</h3>
@@ -76,16 +95,18 @@ const HomePage = () => {
           </Col>
           <Col
             xs={12} md={6} 
-            className="text-center benefits-section py-5 bg-dark text-light"
+            className={`text-center benefits-section py-5 bg-dark text-light ${benefitsVisible ? 'visible' : ''}`}
           >
             <div className="benefits">
-              <p>✔ Best Rate Guarantee</p>
-              <p>✔ £5 off Best Available Rate</p>
-              <p>✔ Free Cancellation</p>
+              {["✔ Best Rate Guarantee", "✔ £5 off Best Available Rate", "✔ Free Cancellation"].map((benefit, index) => (
+                <p key={index} className={activeBenefitIndex >= index ? 'visible' : ''}>{benefit}</p>
+              ))}
             </div>
           </Col>
         </Row>
       </Container>
+
+
 
       {/* About Our Rooms Section */}
       <Container fluid className="about-rooms-section bg-light text-center py-5">

@@ -267,3 +267,20 @@ body {
 }
 
 /* Add more transition delays for other items */
+.benefits-section {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.benefits-section.visible {
+  opacity: 1;
+}
+
+.benefits p {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.benefits p.visible {
+  opacity: 1;
+}
