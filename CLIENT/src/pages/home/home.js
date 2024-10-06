@@ -39,7 +39,7 @@ const HomePage = () => {
       {/* Carousel Section */}
       <Carousel controls={false} indicators={false} interval={4000} >
         <Carousel.Item>
-          <img className="d-block w-100" src={hotle1} alt="Hotel 1" />
+          <img className="d-block w-100" src={hotle4} alt="Hotel 1" />
           <Carousel.Caption>
             <h2>Stay With Us</h2>
             <Button variant="warning" size="lg">
@@ -99,9 +99,9 @@ const HomePage = () => {
 
       {/* Why Book Direct and Benefits Section */}
 {/* Why Book Direct and Benefits Section */}
-<Container fluid className="d-flex align-items-center justify-content-center my-5">
+<Container fluid className="d-flex align-items-center justify-content-center my-5" >
         <Row className="w-100">
-          <Col xs={12} md={6} className="text-center py-5 bg-dark text-light ">
+          <Col xs={12} md={6} className="text-center py-5 bg-dark text-warning " style={{marginTop:'-3.5%'}}>
             <h3>Why Book Direct?</h3>
             <p>Choose Direct Rate when booking your room</p>
             <Button variant="warning" size="lg">
@@ -110,7 +110,7 @@ const HomePage = () => {
           </Col>
           <Col
             xs={12} md={6} 
-            className={`text-center benefits-section py-5 bg-dark text-light ${benefitsVisible ? 'visible' : ''}`}
+            className={`text-center benefits-section py-5 bg-dark text-warning ${benefitsVisible ? 'visible' : ''}`} style={{marginTop:'-3.5%'}}
           >
             <div className="benefits">
               {["✔ Best Rate Guarantee", "✔ £5 off Best Available Rate", "✔ Free Cancellation"].map((benefit, index) => (
