@@ -34,8 +34,6 @@ const HomePage = () => {
   return (
     <>
       <Header />
-     
-
       {/* Carousel Section */}
       <Carousel controls={false} indicators={false} interval={4000} >
         <Carousel.Item>
