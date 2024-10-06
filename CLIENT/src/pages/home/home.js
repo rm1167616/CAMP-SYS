@@ -8,6 +8,7 @@ import hotle3 from '../images/hotle3.jpg';
 import hotle4 from '../images/hotle4.webp';
 import hotle6 from '../images/hotle6.jpg';
 import Header from '../shared/header/header'; 
+import Footer from '../shared/footer/footer'; 
 
 const HomePage = () => {
   const [benefitsVisible, setBenefitsVisible] = useState(false);
@@ -29,7 +30,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
-
+     
 
       {/* Carousel Section */}
       <Carousel controls={false} indicators={false} interval={4000} >
@@ -129,7 +130,12 @@ const HomePage = () => {
           </Col>
         </Row>
       </Container>
+
+
+      <Footer />
     </>
+
+   
   );
 };
 
