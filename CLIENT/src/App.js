@@ -4,6 +4,7 @@ import Header from './pages/shared/header/header'; // Adjust the path based on y
 import HomePage from './HomePage'; // Adjust the path based on your project structure
 import Footer from './pages/shared/footer/footer';
 
+// comment 
 
 function App() {
   return (
