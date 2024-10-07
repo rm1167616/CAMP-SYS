@@ -26,20 +26,20 @@ export const routes = createBrowserRouter([
             element: <Register />,
         },    
         {
-            path: "/manage-offers",
+            path: "/offers",
             children: [ // no '/' in children to avoid errors 
             {
               path: '' ,
               element: <Offers/>
-          },
-          {
-              path: 'add' , // no '/' before add
-              element: <AddOffer/>
-          },
-          {
-              path: ':id' ,
-              element: <UpdateOffer/>
-          },
+            },
+            {
+                path: 'add' , // no '/' before add
+                element: <AddOffer/>
+            },
+            {
+                path: ':id' ,
+                element: <UpdateOffer/>
+            },
       ]
   },   
 ]

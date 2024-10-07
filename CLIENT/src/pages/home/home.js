@@ -13,6 +13,7 @@ import hotle9 from '../images/hotle9.jpg';
 import hotle10 from '../images/hotle10.jpg';
 import Header from '../shared/header/header'; 
 import Footer from '../shared/footer/footer'; 
+import Offers from '../offers/Offers';
 // import axios from 'axios';
 
 
@@ -33,9 +34,24 @@ const HomePage = () => {
     }
   }, [benefitsVisible]);
 
+  const sampleOffers = [
+    {
+      id: 1,
+      title: "Summer Sale",
+      description: "Get 20% off on all items during the summer.",
+      discount: "20%",
+    },
+    {
+      id: 2,
+      title: "Winter Sale",
+      description: "Get 50% off on selected items during the winter.",
+      discount: "50%",
+    },
+  ];
+
   return (
     <>
-      
+
      
 
       {/* Carousel Section */}
