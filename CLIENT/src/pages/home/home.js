@@ -147,10 +147,6 @@ const HomePage = () => {
         </Row>
       </Container>
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
      
     </>
 
