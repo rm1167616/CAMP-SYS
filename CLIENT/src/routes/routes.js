@@ -1,9 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from '../pages/home/home';  // Example component
+import App from '../App';  // Assuming App is the parent component
+import Home from '../pages/home/home.js';  // Example component
 
 export const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <App />,  // App is the parent component
+    children: [
+      {
+        path: "",  // Default path to load Home component
+        element: <Home />,
+      },
+      // Add more child routes here if needed
+    ],
   },
 ]);

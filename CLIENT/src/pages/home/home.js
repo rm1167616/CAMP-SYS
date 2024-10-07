@@ -33,7 +33,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Header />
+      
      
 
       {/* Carousel Section */}
@@ -146,7 +146,7 @@ const HomePage = () => {
       </Container>
 
 
-      <Footer />
+     
     </>
 
    
