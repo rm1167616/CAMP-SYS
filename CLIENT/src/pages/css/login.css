@@ -1,4 +1,98 @@
+
+/* Background and overall container styling */
 .login-container {
-    width: 50%;
-    margin: 5rem auto;
+    background-color: #f5f5f5;
+    padding: 80px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Increased width for larger form */
+    margin: auto;
+    text-align: center;
+    background-color: #fff; /* White background for form */
 }
+
+h1 {
+    color: #000; 
+    font-size: 36px;
+    margin-bottom: 40px;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+  /* Form input styling */
+.form-control {
+    background-color: #fff; /* White input boxes */
+    border: 1px solid #FFD700; /* Gold-like yellow border */
+    border-radius: 6px;
+    padding: 15px; 
+    font-size: 18px; 
+    color: #000;
+    font-family: 'Times New Roman', serif;
+}
+
+.form-control:focus {
+    border-color: #ffdd0093;
+    box-shadow: 0px 0px 5px #ffdd0093; 
+}
+
+  /* Button Styling */
+.btn-dark {
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    padding: 15px 30px; 
+    font-size: 18px; 
+    font-family: 'Times New Roman', serif;
+
+}
+
+.btn-dark:hover {
+    background-color: #90885bc7; /* Yellow on hover */
+    color: #fff; /* Change text to white on hover */
+}
+
+  /* Error Alert Styling */
+.alert-danger {
+    background-color: #ffebee; /* Light red for error alert */
+    color: #d32f2f; 
+    border: none;
+    border-left: 5px solid #d32f2f; 
+    text-align: left;
+}
+
+  /* Adjust the spacing between form groups */
+.mb-3 {
+    margin-bottom: 25px; /* Increase spacing between inputs */
+}
+
+  /* Media Queries for Responsiveness */
+@media only screen and (max-width: 768px) {
+    .login-container {
+        padding: 30px;
+        max-width: 90%; /* Adjust container width for smaller screens */
+    }
+
+    .form-control {
+        font-size: 16px;
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Gender in Register */
+
+.select-gender{
+    background-color: #fff; /* White input boxes */
+    border: 1px solid #FFD700; /* Gold-like yellow border */
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 16px;
+    color: #000;
+    font-family: 'Times New Roman', serif;
+    appearance: none; /* Optional: removes default styling in some browsers */
+}  
+

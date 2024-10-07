@@ -1,8 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './pages/shared/header/header'; // Adjust the path based on your project structure
+<<<<<<< Updated upstream
+=======
+// import HomePage from './HomePage'; // Adjust the path based on your project structure
+>>>>>>> Stashed changes
 import Home from './pages/home/home'; // Adjust the path based on your project structure
 import Footer from './pages/shared/footer/footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

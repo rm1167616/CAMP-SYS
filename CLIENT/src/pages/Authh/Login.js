@@ -42,17 +42,17 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h1>Login</h1>
-
+      <h1 className = "login-h1 mb-4">Login</h1>
+      
       {/* Display error message for server-side errors */}
-      {login.err.map((error, index) => (+
+      {login.err.map((error, index) => (
         <Alert key={index} variant="danger" className="p-2">
           {error.msg}
         </Alert>
       ))}
 
       <Form onSubmit={LoginFun}>
-        <Form.Group className="mb-3 w-75">
+        <Form.Group className="mb-4 w-100">
           <Form.Control
             type="email"
             placeholder="Email"
@@ -62,7 +62,7 @@ const Login = () => {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3 w-75">
+        <Form.Group className="mb-4 w-100">
           <Form.Control
             type="password"
             placeholder="Password"

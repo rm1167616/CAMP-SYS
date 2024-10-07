@@ -12,6 +12,6 @@ export const routes = createBrowserRouter([
         element: <Home />,
       },
       // Add more child routes here if needed
-    ],
+    ],s
   },
 ]);

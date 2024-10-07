@@ -58,7 +58,7 @@ const Register = () => {
 
     return (
     <div className="login-container">
-        <h1> Required fields </h1>
+        <h1 className = "login-h1 mb-4"> Create your Account </h1>
 
         {/* Show error if passwords don't match */}
         {register.passwordMatchError && (
@@ -77,7 +77,7 @@ const Register = () => {
         <Form onSubmit={RegisterFun}>
 
         {/* Name Input */}
-        <Form.Group className="mb-3 w-75">
+        <Form.Group className="mb-3 w-100">
         <Form.Control
             type="text"
             placeholder="Full Name"
@@ -88,7 +88,7 @@ const Register = () => {
         </Form.Group>
 
         {/* Email Input */}
-        <Form.Group className="mb-3 w-75">
+        <Form.Group className="mb-3 w-100">
         <Form.Control
             type="email"
             placeholder="Email"
@@ -101,7 +101,7 @@ const Register = () => {
         </Form.Group>
 
         {/* Birthday Input */}
-        <Form.Group className="mb-3 w-75">
+        <Form.Group className="mb-3 w-100">
         <Form.Control
             type="date"
             placeholder="Birthday"
@@ -114,8 +114,8 @@ const Register = () => {
         </Form.Group>
 
         {/* Gender Input (Dropdown) */}
-        <Form.Group className="mb-3 w-75">
-        <Form.Select
+        <Form.Group className="mb-3 w-100">
+        <Form.Select className = "select-gender"
             value={register.gender}
             onChange={(e) => setRegister({ ...register, gender: e.target.value })}>
             <option value="">Select Gender</option>
@@ -125,7 +125,7 @@ const Register = () => {
         </Form.Group>
 
         {/* Phone Input */}
-        <Form.Group className="mb-3 w-75">
+        <Form.Group className="mb-3 w-100">
         <Form.Control
             type="tel"
             placeholder="Phone Number"
@@ -136,7 +136,7 @@ const Register = () => {
         </Form.Group>
 
         {/* Password Input */}
-        <Form.Group className="mb-3 w-75">
+        <Form.Group className="mb-3 w-100">
         <Form.Control
             type="password"
             placeholder="Password"
@@ -149,7 +149,7 @@ const Register = () => {
         </Form.Group>
 
         {/* Confirm Password Input */}
-        <Form.Group className="mb-3 w-75">
+        <Form.Group className="mb-4 w-100">
         <Form.Control
             type="password"
             placeholder="Confirm Password"
@@ -162,7 +162,7 @@ const Register = () => {
         </Form.Group>
 
         <Button
-            className="btn btn-dark w-25"
+            className="btn btn-dark w-50"
             variant="primary"
             type="submit"
             disabled={register.loading === true}>

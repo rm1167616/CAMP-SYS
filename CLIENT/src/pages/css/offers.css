@@ -1,0 +1,159 @@
+
+/* General Styling */
+body {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: #1a1a1a; /* Darker background for container */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(255, 223, 0, 0.3); /* Yellow glow shadow */
+}
+
+.offers-h1 {
+    color: #FFDF00; /* Gold yellow for headings */
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Table Styling */
+.table {
+    margin-top: 20px;
+    background-color: #262626; /* Dark table background */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #FFD700; /* Yellow header */
+    color: #000; /* Black text for headers */
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    border: none;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #1a1a1a; /* Alternating row color */
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #333333; /* Alternating row color */
+}
+
+.table td {
+    color: #000; /* White text for table content */
+}
+
+/* Button Styling */
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+}
+
+.btn-primary {
+    background-color: #FFD700; /* Gold button */
+    color: #000; /* Black text */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #FFDF00; /* Slightly lighter yellow */
+    color: #fff;
+}
+
+.btn-info {
+    background-color: #FFDF00; /* Gold button */
+    color: #000; /* Black text */
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: #FFDF00; /* Slightly lighter yellow */
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #ff4444; /* Red for delete button */
+    color: #fff;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #ff2222;
+}
+
+
+/* Modal Styling */
+.modal-content {
+    background-color: #333333; /* Dark background for modal */
+    color: #fff; /* White text */
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 223, 0, 0.3); /* Yellow shadow */
+}
+
+.modal-header {
+    background-color: #FFD700; /* Gold header */
+    color: #000; /* Black text */
+    border-bottom: 1px solid #FFD700;
+}
+
+.modal-footer {
+    border-top: 1px solid #FFD700; /* Gold border on footer */
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-control-offers {
+    background-color: #262626; /* Dark input field */
+    color: #fff; /* White text */
+    border: 1px solid #FFD700; /* Gold border */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+
+.form-control-offers :focus {
+    border-color: #FFDF00; /* Brighter yellow on focus */
+    box-shadow: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #FFD700; /* Gold scrollbar */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1a1a1a; /* Dark background for scrollbar track */
+}
+
+/* Footer Styling */
+.modal-footer .btn {
+    margin-left: 10px;
+}

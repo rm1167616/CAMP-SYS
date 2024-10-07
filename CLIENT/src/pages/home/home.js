@@ -13,6 +13,8 @@ import hotle9 from '../images/hotle9.jpg';
 import hotle10 from '../images/hotle10.jpg';
 import Header from '../shared/header/header'; 
 import Footer from '../shared/footer/footer'; 
+// import axios from 'axios';
+
 
 const HomePage = () => {
   const [benefitsVisible, setBenefitsVisible] = useState(false);
@@ -145,7 +147,10 @@ const HomePage = () => {
         </Row>
       </Container>
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
      
     </>
 

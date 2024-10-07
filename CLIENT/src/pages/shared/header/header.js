@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -32,6 +33,9 @@ const Header = () => {
           <Nav.Item>
             <Nav.Link href="#contact" className="text-warning">Contact</Nav.Link>
           </Nav.Item>
+          <Link className = "nav-link text-warning" to = {"/login"}> Login </Link>
+          <Link className = "nav-link text-warning" to = {"/register"}> Register </Link>
+          <Link className = "nav-link text-warning" to = {"/offers"}> Offers </Link>
         </Nav>
       </Container>
     </header>
