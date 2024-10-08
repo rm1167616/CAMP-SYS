@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/footer.css'; // Custom CSS for styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faLinkedin, faInstagram, faTripadvisor, faGithub } from '@fortawesome/free-brands-svg-icons'; // Import specific icons
+import { faFacebook, faTwitter, faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'; // Import specific icons
 import gsap from 'gsap';
 
 const Footer = () => {
