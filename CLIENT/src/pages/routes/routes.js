@@ -8,7 +8,7 @@ import UpdateOffer from "../pages/offers/UpdateOffer";
 import Offers from "../pages/offers/Offers";
 import Contact from "../pages/Contact/Contact";
 
-
+//
 export const routes = createBrowserRouter([
 { 
     path : '', 
