@@ -96,6 +96,9 @@
 .Webbugs {
 color: #f39c12;
 }
+.list-inline {
+  margin: 0;
+}
 @media (max-width: 768px) {
   .footer {
     text-align: center;
