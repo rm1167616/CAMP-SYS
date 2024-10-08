@@ -1,78 +1,71 @@
-/* Offers Container Styling */
-.offers-container {
-    padding: 20px;
-    background-color: white; /* White background for contrast */
-}
-
 /* Offer Cards Styling */
 .offer-card {
+    display: flex; /* Make card content horizontal */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Center content vertically */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border: 1px solid black; /* Black borders */
+    border: 1px solid black;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px; /* Add some padding for better spacing */
+    margin-left: 20px;
+    width: 80%; /* Make card full width */
+    max-width: 100%; /* Ensure card doesn't exceed parent width */
+    box-sizing: border-box; /* Include padding and border in element's width */
 }
 
 .offer-card:hover {
-    transform: scale(1.05); /* Slight zoom-in effect */
+    transform: scale(1.03); /* Reduce scale to avoid overflow */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Card title with hint of gold */
+/* Image styling inside the card */
+.offer-card img {
+    width: 100px; /* Slightly reduce the image width */
+    height: auto;
+    margin-right: 15px; /* Space between image and text */
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+/* Card text content */
+.offer-card .card-content {
+    flex: 1; /* Allow text content to take remaining space */
+}
+
 .offer-card .card-title {
     color: black;
     font-weight: bold;
-    border-bottom: 2px solid #DAA520; /* Gold-yellow underline */
+    border-bottom: 2px solid #DAA520;
     padding-bottom: 10px;
 }
 
-/* Card text styling */
 .offer-card .card-text {
     color: black;
+    margin-bottom: 8px; /* Add space between text blocks */
 }
 
-/* Button Styling */
-.custom-btn {
-    background-color: black;
-    border: 2px solid #DAA520; /* Gold-yellow border */
-    color: white;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s;
-    font-family: 'Times New Roman', serif;
+/* Button container to keep buttons aligned */
+.offer-card .button-group {
+    margin-top: 10px;
 }
 
-.custom-btn:hover {
-    background-color: #DAA520; /* Gold-yellow hover */
-    color: black;
-    transform: translateY(-3px); /* Lift button slightly on hover */
-}
-
-/* Custom Styles for Info and Danger Buttons */
+/* Custom Styles for Info, Danger, and Success Buttons */
 .btn-info.custom-btn,
-.btn-danger.custom-btn {
-    background-color: black; /* Remove background color */
+.btn-danger.custom-btn,
+.btn-success.custom-btn {
+    background-color: black; /* Set to black as the default */
     border: 2px solid #DAA520; /* Gold-yellow border */
-    color: white; /* Black text color */
+    color: white; /* Text color */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s;
+    font-family: 'Times New Roman', serif; /* Font */
 }
 
 .btn-info.custom-btn:hover,
-.btn-danger.custom-btn:hover {
-    background-color: #DAA520; /* Gold-yellow background on hover */
-    color: #000; /* Black text on hover */
-}
-
-/* Adding animation for card appearance */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animated-card {
-    animation: fadeInUp 0.5s ease-in-out;
+.btn-danger.custom-btn:hover,
+.btn-success.custom-btn:hover {
+    background-color: #DAA520; /* Gold-yellow hover */
+    color: black;
+    transform: translateY(-3px); /* Lift button slightly on hover */
 }
