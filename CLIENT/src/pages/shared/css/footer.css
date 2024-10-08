@@ -1,50 +1,111 @@
-.footer {
-    background-color: #2c3e50; /* Dark background */
-    color: #ffffff;
+
+.footer-logo {
+  /* max-width: 150px; */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.footer ul {
+  padding: 0;
+}
+
+.footer ul li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.footer .list-inline-item {
+  margin-right: 10px;
+}
+
+.footer .social-icon {
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.footer .social-icon:hover {
+  color: #f39c12;
+  /* Hover effect */
+}
+
+.footer p {
+  margin: 0;
+}
+
+.list-unstyled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.row {
+  align-items: center;
+}
+
+.ConLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ContactUs {
+  text-align: end;
+}
+
+.ParentContactUs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ConatainreFooter {
+  background-color: rgb(237 237 237) !important;
+  color: #474747 !important;
+}
+.list-unstyledOptions a {
+  transition: 0.3s;
+  text-decoration: none;
+  color: #474747;
+}
+.list-unstyledOptions a:hover {
+  color: #f39c12;
+}
+.EndFooter {
+  background-color:rgb(33, 37, 41);
+  color: #ffffff;
+  padding-block: 10px;
+}
+.ConEndFooter {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Webbugs {
+color: #f39c12;
+}
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
   }
-  
+
   .footer-logo {
-    max-width: 150px;
+    margin: 0 auto 20px auto;
   }
-  
-  .footer ul {
-    padding: 0;
+
+  .list-inline-item {
+    margin-right: 5px;
   }
-  
-  .footer ul li {
-    list-style: none;
-    margin-bottom: 5px;
-  }
-  
-  .footer .list-inline-item {
-    margin-right: 10px;
-  }
-  
-  .footer .social-icon {
-    color: #ffffff;
-    font-size: 1.2rem;
-    text-decoration: none;
-  }
-  
-  .footer .social-icon:hover {
-    color: #f39c12; /* Hover effect */
-  }
-  
-  .footer p {
-    margin: 0;
-  }
-  
-  @media (max-width: 768px) {
-    .footer {
-      text-align: center;
-    }
-  
-    .footer-logo {
-      margin: 0 auto 20px auto;
-    }
-  
-    .list-inline-item {
-      margin-right: 5px;
-    }
-  }
-  
+}
