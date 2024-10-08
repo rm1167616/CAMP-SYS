@@ -6,10 +6,11 @@ import App from "../App";
 import AddOffer from "../pages/offers/AddOffer";
 import UpdateOffer from "../pages/offers/UpdateOffer";
 import Offers from "../pages/offers/Offers";
+import Contact from "../pages/Contact/Contact";
 
 
 export const routes = createBrowserRouter([
-  { 
+{ 
     path : '', 
     element: <App/> , // Parent 
     children: [
@@ -29,23 +30,27 @@ export const routes = createBrowserRouter([
             path: "/offers",
             children: [ // no '/' in children to avoid errors 
             {
-              path: '' ,
-              element: <Offers/>
+                path: '' ,
+                element: <Offers/>,
             },
             {
                 path: 'add' , // no '/' before add
-                element: <AddOffer/>
+                element: <AddOffer/>,
             },
             {
                 path: ':id' ,
-                element: <UpdateOffer/>
-            },
-      ]
-  },   
+                element: <UpdateOffer/> ,
+            },]
+        },   
+        {
+            path: "/contact",
+            element: <Contact/>,
+        },  
+
 ]
 },
-      {
-      path: "*", // in case of wrong url, go to home  
-      element: <Navigate to={"/"} />,
-      },
+        {
+            path: "*", // in case of wrong url, go to home  
+            element: <Navigate to={"/"} />,
+        },
 ]);

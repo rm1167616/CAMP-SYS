@@ -38,11 +38,10 @@ h1 {
 
   /* Button Styling */
 .btn-dark {
-    color: #fff;
-    border: none;
-    font-weight: bold;
-    padding: 15px 30px; 
-    font-size: 18px; 
+    background-color: black;
+    border: 2px solid #DAA520; /* Gold-yellow border */
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s;
     font-family: 'Times New Roman', serif;
 
 }

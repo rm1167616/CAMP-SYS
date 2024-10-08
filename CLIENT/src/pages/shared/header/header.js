@@ -30,9 +30,7 @@ const Header = () => {
           <Nav.Item>
             <Nav.Link href="#events" className="text-warning">Special Events</Nav.Link>
           </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="#contact" className="text-warning">Contact</Nav.Link>
-          </Nav.Item>
+          <Link className = "nav-link text-warning" to = {"/contact"}> Contact Us </Link>
           <Link className = "nav-link text-warning" to = {"/login"}> Login </Link>
           <Link className = "nav-link text-warning" to = {"/register"}> Register </Link>
           <Link className = "nav-link text-warning" to = {"/offers"}> Offers </Link>
