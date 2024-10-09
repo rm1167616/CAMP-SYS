@@ -1,6 +1,6 @@
 /* Background and overall container styling for the registration page */
 .background-img {
-    background-image: url('../images/Sunrise.jpg'); /* Set the background image */
+    background-image: url('../images/dahab-background.jpg'); /* Set the background image */
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
