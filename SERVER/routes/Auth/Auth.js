@@ -45,8 +45,10 @@ router.post("/register", async (req, res) => {
             token: crypto.randomBytes(16).toString("hex")
         };
 
-        const insertUserResult = await query("INSERT INTO user SET ?", userObj);
-        res.status(201).json({ id: insertUserResult.insertId });
+        await query("INSERT INTO user SET ?", userObj);
+        const lastToken = await query ("SELECT token FROM user ORDER BY id DESC LIMIT 1;");
+        res.status(200).json(lastToken);
+        
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: "Server error" });
