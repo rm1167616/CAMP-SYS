@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "a4b9aae7-53a0-4329-8dc0-e000482191da",
+		"name": "Camp_System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19769284"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"name\": \"Radwan Mohamed\",\r\n            \"email\":\"rfmcvm1167616@gmail.com\" ,\r\n            \"password\":\"Radwan@10203040\" ,\r\n            \"phone\": \"01223740125\",\r\n            \"birthday\":\"01/15/1990\" ,\r\n            \"gender\":\"male\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/Auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
