@@ -7,6 +7,7 @@ import AddOffer from "../pages/offers/AddOffer";
 import UpdateOffer from "../pages/offers/UpdateOffer";
 import Offers from "../pages/offers/Offers";
 import Contact from "../pages/Contact/Contact";
+import ForgotPassword from "../pages/Authh/ForgotPassword";
 
 
 export const routes = createBrowserRouter([
@@ -26,6 +27,10 @@ export const routes = createBrowserRouter([
             path: "/register",
             element: <Register />,
         },    
+        {
+            path: "/forgot-password",
+            element: <ForgotPassword />,
+        },  
         {
             path: "/offers",
             children: [ // no '/' in children to avoid errors 

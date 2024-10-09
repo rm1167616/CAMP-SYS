@@ -1,14 +1,14 @@
 
 /* Background and overall container styling */
 .login-container {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; 
     padding: 80px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     max-width: 600px; /* Increased width for larger form */
     margin: auto;
     text-align: center;
-    background-color: #fff; /* White background for form */
+    background-color: #fff ; 
 }
 
 h1 {
@@ -23,7 +23,7 @@ h1 {
   /* Form input styling */
 .form-control {
     background-color: #fff; /* White input boxes */
-    border: 1px solid #FFD700; /* Gold-like yellow border */
+    border: 1px solid #FFD700 !important; /* Gold-like yellow border */
     border-radius: 6px;
     padding: 15px; 
     font-size: 18px; 
@@ -43,12 +43,14 @@ h1 {
     color: white;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s;
     font-family: 'Times New Roman', serif;
+    
 
 }
 
 .btn-dark:hover {
-    background-color: #90885bc7; /* Yellow on hover */
-    color: #fff; /* Change text to white on hover */
+    background-color: #DAA520; /* Gold-yellow hover */
+    color: black;
+    transform: translateY(-3px); /* Lift button slightly on hover */
 }
 
   /* Error Alert Styling */
@@ -95,3 +97,24 @@ h1 {
     appearance: none; /* Optional: removes default styling in some browsers */
 }  
 
+.create-account-link {
+    display: block;
+    margin-top: 20px; /* Space between the button and the link */
+    font-size: 16px; /* Adjust the font size */
+    color: black; /* Blue text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.create-account-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Forgot Password Link */
+.forgot-password-link {
+    color: black; /* Bootstrap link color */
+    text-decoration: none; /* No underline */
+}
+
+.forgot-password-link:hover{
+    text-decoration: underline; /* Underline on hover */
+}

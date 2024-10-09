@@ -1,71 +1,108 @@
+/* Main container for the offers */
+.offers-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-end; /* Align items to the right */
+}
+
+/* Styling for the main heading */
+.offers-container h1 {
+    text-align: center; /* Center the heading */
+    width: 100%; /* Ensure it takes the full width */
+}
+
+/* Container for the offer cards */
+.offer-card-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap if necessary */
+    width: 100%; /* Ensure it takes full width */
+    padding: 20px; /* Add padding for spacing */
+}
+
 /* Offer Cards Styling */
 .offer-card {
     display: flex; /* Make card content horizontal */
     flex-direction: row; /* Arrange items in a row */
     align-items: center; /* Center content vertically */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border: 1px solid black;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animation on hover */
+    border: 1px solid black; /* Black border for contrast */
+    background-color: white; /* White background for card content */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    overflow: hidden; /* Hide overflow content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     padding: 10px; /* Add some padding for better spacing */
-    margin-left: 20px;
+    margin-left: 140px; /* Space from the left side */
     width: 80%; /* Make card full width */
     max-width: 100%; /* Ensure card doesn't exceed parent width */
     box-sizing: border-box; /* Include padding and border in element's width */
 }
 
+/* Hover effect for offer cards */
 .offer-card:hover {
-    transform: scale(1.03); /* Reduce scale to avoid overflow */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03); /* Slightly increase size on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Intensify shadow on hover */
 }
 
-/* Image styling inside the card */
-.offer-card img {
-    width: 100px; /* Slightly reduce the image width */
-    height: auto;
+/* Image styling inside the offer card with fixed size */
+.fixed-size-image {
+    width: 400px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Crop the image to fill the area without distorting */
     margin-right: 15px; /* Space between image and text */
     border-radius: 5px; /* Slightly rounded corners */
 }
 
-/* Card text content */
+/* Card text content styling */
 .offer-card .card-content {
     flex: 1; /* Allow text content to take remaining space */
 }
 
 .offer-card .card-title {
-    color: black;
-    font-weight: bold;
-    border-bottom: 2px solid #DAA520;
-    padding-bottom: 10px;
+    color: black; /* Card title color */
+    font-weight: bold; /* Bold font for emphasis */
+    border-bottom: 2px solid #DAA520; /* Gold-yellow underline */
+    padding-bottom: 10px; /* Space below the title */
 }
 
 .offer-card .card-text {
-    color: black;
+    color: black; /* Text color */
     margin-bottom: 8px; /* Add space between text blocks */
 }
 
 /* Button container to keep buttons aligned */
 .offer-card .button-group {
-    margin-top: 10px;
+    margin-top: 10px; /* Space between text and buttons */
+}
+
+/* Add Offer Button Container */
+.add-offer-button-container {
+    display: flex; /* Flex container for positioning */
+    justify-content: flex-end; /* Align to the right */
+    padding: 10px 20px; /* Padding for spacing */
+}
+
+/* Styling for Add Offer button */
+.add-custom-btn {
+    margin-bottom: 20px; /* Space below the button */
 }
 
 /* Custom Styles for Info, Danger, and Success Buttons */
 .btn-info.custom-btn,
 .btn-danger.custom-btn,
-.btn-success.custom-btn {
+.btn-success.add-custom-btn {
     background-color: black; /* Set to black as the default */
     border: 2px solid #DAA520; /* Gold-yellow border */
     color: white; /* Text color */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s; /* Animation effects */
     font-family: 'Times New Roman', serif; /* Font */
 }
 
+/* Hover effects for the buttons */
 .btn-info.custom-btn:hover,
 .btn-danger.custom-btn:hover,
-.btn-success.custom-btn:hover {
+.btn-success.add-custom-btn:hover {
     background-color: #DAA520; /* Gold-yellow hover */
-    color: black;
+    color: black; /* Text color on hover */
     transform: translateY(-3px); /* Lift button slightly on hover */
 }

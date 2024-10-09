@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
 import '../css/animation.css'; // Import your CSS for animations
 import '../css/Header.css';
 import AnimateOnScroll from '../js/AnimateOnScroll'; 
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -57,17 +58,17 @@ const Header = () => {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#events" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
-              Special Events
+            <Nav.Link as={Link} to="/offers" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
+              Offers
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#contact" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.9s"}}>
+            <Nav.Link href="#contact" className="text-warning" as={Link} to="/contact" data-animation="slideInDown" style={{animationDelay: "0.9s"}}>
               Contact
             </Nav.Link>
           </Nav.Item>
           </div>
-          <a className='SignIN text-warning' data-animation ="slideInLeft" style={{animationDelay: "0.2s"}}>SignIn</a>
+          <Nav.Link className='SignIN text-warning' as={Link} to="/login" data-animation ="slideInLeft" style={{animationDelay: "0.2s"}}>Login</Nav.Link>
         </Nav>
       </Container>
     </header>

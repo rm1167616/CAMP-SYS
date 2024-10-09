@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import axios from "axios";
 import { setAuthUser } from "../../helper/Storage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../../pages/css/login.css";
 
 const Login = () => {
@@ -14,6 +14,7 @@ const Login = () => {
     password: "",
     loading: false,
     err: [],
+    rememberMe: false, // Add state for 'Remember Me'
   });
 
   const LoginFun = (e) => {
@@ -28,8 +29,14 @@ const Login = () => {
       })
       .then((resp) => {
         setLogin({ ...login, loading: false, err: [] });
-        setAuthUser(resp.data);
-        navigate("/");
+          // Handle "Remember Me"
+          if (login.rememberMe) {
+            localStorage.setItem("authUser", JSON.stringify(resp.data)); // Save token in localStorage (this persists even after closing the browser).
+          } else {
+            sessionStorage.setItem("authUser", JSON.stringify(resp.data)); // Save token in sessionStorage (which gets cleared when the session ends).
+          }
+          setAuthUser(resp.data);
+          navigate("/");
       })
       .catch((errors) => {
         setLogin({
@@ -73,6 +80,22 @@ const Login = () => {
             />
           </Form.Group>
 
+          {/* Remember Me and Forget Password */}
+          <div className="d-flex justify-content-between align-items-center mb-4">
+            <Form.Group controlId="rememberMe" className="d-flex align-items-center">
+              <Form.Check 
+                type="checkbox" 
+                label="Remember Me" 
+                checked={login.rememberMe}
+                onChange={(e) => setLogin({ ...login, rememberMe: e.target.checked })}
+              />
+            </Form.Group>
+
+            <Link to="/forgot-password" className="forgot-password-link">
+              Forgot Password?
+            </Link>
+          </div>
+
           <Button
             className="btn btn-dark w-25"
             variant="primary"
@@ -80,6 +103,13 @@ const Login = () => {
             disabled={login.loading === true}>
             Submit
           </Button>
+
+          {/* Create Account Link */}
+          <div className="mt-3">
+            <Link to="/register" className="create-account-link">
+              Don't have an account? Create one
+            </Link>
+          </div>
         </Form>
       </div>
     </div>
