@@ -20,7 +20,13 @@ const Register = () => {
         loading: false,
         err: [],
         passwordMatchError: false, // For password match error
+        passwordStrengthError: false, // For password strength error
     });
+
+    const validatePasswordLength = (password) => {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return passwordRegex.test(password);
+    };
 
     const RegisterFun = (e) => {
     e.preventDefault();
@@ -31,10 +37,17 @@ const Register = () => {
       return; // Exit if passwords don't match
     }
 
+
+    // Check password strength
+    if (!validatePasswordLength(register.password)) {
+        setRegister({ ...register, passwordStrengthError: true });
+        return; // Exit if password does not meet criteria
+        }
+    
     setRegister({ ...register, loading: true, err: [] });
 
     axios
-    .post("http://localhost:4000/auth/register", {
+    .post("http://localhost:4000/Auth/register", {
         email: register.email, // Send email
         password: register.password, // Send password
         name: register.name, // Send name
@@ -44,14 +57,16 @@ const Register = () => {
     })
     .then((resp) => {
         setRegister({ ...register, loading: false, err: [] });
+        console.log("Response:", resp.data); // Log response data here
         setAuthUser(resp.data);
-        navigate("/");
+        navigate("/login");
     })
-    .catch((errors) => {
+    .catch((error) => {
+        console.error("Registration error:", error.response ? error.response.data : error); // Improved error logging
         setRegister({
-        ...register,
-        loading: false,
-        err: errors.response.data.errors,
+            ...register,
+            loading: false,
+            err: error.response ? error.response.data.errors : ["Unexpected error occurred."],
         });
     });
 };
@@ -68,15 +83,21 @@ const Register = () => {
                 </Alert>
             )}
 
-        {/* Show server errors */}
-            {register.err.map((error, index) => (
-                <Alert key={index} variant="danger" className="p-2">
+            {/* Show error if password doesn't meet strength requirements */}
+            {register.passwordStrengthError && (
+                    <Alert variant="danger" className="p-2">
+                        Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+                    </Alert>
+                )}
+
+            {/* Show server errors */}
+            {Array.isArray(register.err) && register.err.length > 0 && register.err.map((error, index) => (
+            <Alert key={index} variant="danger" className="p-2">
                 {error.msg}
-                </Alert>
+            </Alert>
             ))}
 
             <Form onSubmit={RegisterFun}>
-
             {/* Name Input */}
             <Form.Group className="mb-3 w-100">
             <Form.Control
@@ -120,8 +141,8 @@ const Register = () => {
                 value={register.gender}
                 onChange={(e) => setRegister({ ...register, gender: e.target.value })}>
                 <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
             </Form.Select>
             </Form.Group>
 

@@ -18,7 +18,7 @@ const Login = () => {
   });
 
   const LoginFun = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // To prevent refreshing on submit
 
     setLogin({ ...login, loading: true, err: [] });
 
@@ -29,7 +29,8 @@ const Login = () => {
       })
       .then((resp) => {
         setLogin({ ...login, loading: false, err: [] });
-          // Handle "Remember Me"
+        
+          /* Handle "Remember Me" */
           if (login.rememberMe) {
             localStorage.setItem("authUser", JSON.stringify(resp.data)); // Save token in localStorage (this persists even after closing the browser).
           } else {
