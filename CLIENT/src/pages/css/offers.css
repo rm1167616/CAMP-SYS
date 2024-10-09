@@ -46,8 +46,8 @@
 
 /* Image styling inside the offer card with fixed size */
 .fixed-size-image {
-    width: 400px; /* Fixed width */
-    height: 300px; /* Fixed height */
+    width: 600px; /* Fixed width */
+    height: 600px; /* Fixed height */
     object-fit: cover; /* Crop the image to fill the area without distorting */
     margin-right: 15px; /* Space between image and text */
     border-radius: 5px; /* Slightly rounded corners */
