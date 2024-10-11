@@ -1,15 +1,20 @@
 //================= init express app ===============
 const express = require("express");
 const app = express();
-
+const path = require('path'); // Import the path module
+require('dotenv').config();
+const cors = require("cors");
 //=================Global middleware==================
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("upload"));
-const cors = require("cors");
 app.use(cors());  // allow https requst,respons
 
 
+// Serve static files from the "uploads" directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static('uploads'));
+app.use('/server/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //======== run the app ============//
 app.listen(4000 || process.env.port, () => {
@@ -17,4 +22,7 @@ app.listen(4000 || process.env.port, () => {
     });
 
 //=========== APIS ===========//
+//====== AUTHINTICATION ======//
 app.use("/Auth",require("./routes/Auth/Auth"));
+//=========== OFFERS =========//
+app.use("/offers",require("./routes/offers/offers"));
