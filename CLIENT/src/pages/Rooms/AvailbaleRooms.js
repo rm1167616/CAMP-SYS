@@ -33,25 +33,6 @@ const AvailableRooms = () => {
                         <option value="CatigoryB">B</option>
                         <option value="Catigoryc">C</option>
                     </Form.Select>
-                    {/* Select Time From */}
-                    {/* <Form.Control
-                        type="date"
-                        id="dateInput"
-                        value={selectedDate}
-                        onChange={handleDateChange}
-                        min="2023-01-01"
-                        max="2023-12-31"
-                        style={{ padding: '10px', border: '2px solid #007bff', borderRadius: '5px', fontSize: '16px' }}
-                    >
-
-                    </Form.Control> */}
-                    {/* Select Time to */}
-                    {/* <Form.Control
-                        className="SelectCatigory"
-                        type="Date"
-                        placeholder="to"
-                    >
-                    </Form.Control> */}
                 </Form.Group>
                 <div className='FilterDays'>
                     <span>From</span>
