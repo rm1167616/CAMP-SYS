@@ -52,7 +52,8 @@ Bromley South Railway Station offers regular fast trains to London’s Victoria 
 
 There is public transport available to Greenwich Village, the Royal Observatory, Cutty Sark and O2 Arena. For Canary Wharf, Excel Exhibition Centre and the City of London, get on the Docklands Light Railway from Lewisham (2 miles away). Croydon is 6 miles away.
 
-Keep up with your fitness routine when you are away. Our air-conditioned gym room is equipped with weight, rowing and running machines.</p>
+Keep up with your fitness routine when you are away. Our air-conditioned gym room is equipped with weight, rowing and running machines.
+          </p>
         </Col>
         <Col xs={12} md={6} className="text-right">
           <ul style={styles.iconList}>
@@ -174,10 +175,10 @@ const HomePage = () => {
           </Col>
           <Col xs={12} md={6} className="benefit-icon gsap-text text-right">
             <ul>
-              <li>🚗Best Rate Guarantee</li>
-              <li>📶 £5 off Best Available Rate</li>
-              <li>🏋️ £5 Food & Beverage Voucher to be used during your stay</li>
-              <li>⚡ The Bromley Court Hotel Exclusive offers and discounts</li>
+              <li>🚗 Free Parking</li>
+              <li>📶 Free Wifi</li>
+              <li>🏋️ Free Gym Access</li>
+              <li>⚡ Electric Car Charging</li>
               <li>📺 Freeview TV</li>
               <li>❄️ Air Conditioning</li>
             </ul>
