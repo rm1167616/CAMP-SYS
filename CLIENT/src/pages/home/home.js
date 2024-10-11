@@ -41,8 +41,8 @@ const NewRoomFeatureSection = () => {
     <Container fluid className="room-features-section bg-white text-center" style={{ padding: '50px 0' }}>
       <Row className="justify-content-center">
         <Col xs={12} md={6} className="text-left">
-        <h6 className="text-dark">STAY WITH US</h6>
-          <h2 className="text-dark">Why Choose Our Rooms</h2>
+        <h6 className="text-dark text-left">STAY WITH US</h6>
+          <h2 className="text-dark text-center">Why Choose Our Rooms</h2>
           <p className="text-muted">
           Years of hospitality experience have gone into fine-tuning our rooms to guarantee a great stay. We keep things simple for you by making sure everything you need is included as standard. High-speed internet access and a desk in your room helps to make life easier when staying over as a business guest or adjoining rooms give peace of mind for families and cots are available on request.
 
@@ -55,7 +55,7 @@ There is public transport available to Greenwich Village, the Royal Observatory,
 Keep up with your fitness routine when you are away. Our air-conditioned gym room is equipped with weight, rowing and running machines.
           </p>
         </Col>
-        <Col xs={12} md={6} className="text-right">
+        <Col xs={12} md={6} className="text-Right">
           <ul style={styles.iconList}>
             <li style={styles.iconItem}>
               <span style={styles.icon}>🚗</span> <span>Free Parking</span>
@@ -171,7 +171,7 @@ const HomePage = () => {
           <Col xs={12} md={6} className="benefit-text gsap-text text-left">
             <h2>Why Book Direct?</h2>
             <p>Choose Direct Rate when booking your room to enjoy special benefits.</p>
-            <Button className="check-availability-btn">Check Availability</Button>
+            <Button className="check-availability-btn" variant='Warning'>Check Availability</Button>
           </Col>
           <Col xs={12} md={6} className="benefit-icon gsap-text text-right">
             <ul>
@@ -205,7 +205,7 @@ const HomePage = () => {
           <Col xs={12} md={6} className="about-rooms-gsap-text gsap-text text-left">
             <h2>About Our Rooms</h2>
             <p>Years of hospitality experience have gone into fine-tuning our rooms to guarantee a great stay.</p>
-            <Button className="check-availability-btn">Check Availability</Button>
+            <Button className="check-availability-btn" variant='Warning'>Check Availability</Button>
           </Col>
           <Col xs={12} md={6} className="about-rooms-icon gsap-text text-right">
             <ul>
