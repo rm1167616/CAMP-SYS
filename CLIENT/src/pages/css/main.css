@@ -1,286 +1,156 @@
-.offers-section {
-    background-color: #f4f4f4;
-    padding: 40px 0;
-  }
-  
-  .offer-card img {
-    height: 250px; /* Adjust based on your image size */
-    object-fit: cover;
-  }
-  
-  .offer-card {
-    transition: transform 0.3s;
-  }
-  
-  .offer-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .offer-card button {
-    border-color: #6c757d;
-    color: #6c757d;
-  }
-  
-  .offer-card button:hover {
-    background-color: #6c757d;
-    color: white;
-  }
-  /* Basic styling for the container */
-.container-fluid {
-  padding: 0;
-  margin: 0;
-}
-
-/* Banner Image Styling */
-img.w-100 {
-  max-height: 600px;
-  object-fit: cover;
-}
-
-/* Stay With Us Section */
-.text-center h2 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.text-center button {
-  padding: 10px 30px;
-  font-size: 1.2rem;
-}
-
-/* Offers Section */
-.offers-section {
-  background-color: #f9f9f9;
-  padding: 60px 0;
-}
-
-.offers-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-
-.offer-card {
-  border: none;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.offer-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* Styling for the card image to ensure consistency */
-.offer-card img {
-  height: 300px; /* Adjust based on your image size */
-  object-fit: cover;
-}
-
-.offer-card button {
-  border-color: #333;
-  color: #333;
-}
-
-.offer-card button:hover {
-  background-color: #333;
-  color: white;
-}
-
-/* Room Types Section */
-.text-center .mb-4 {
-  margin-bottom: 30px;
-}
-
-.text-center .card {
-  transition: transform 0.3s;
-  box-shadow: none;
-}
-
-.text-center .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.text-center .card img {
-  height: 250px; /* Adjust this based on the size of your images */
-  object-fit: cover;
-}
-
-.text-center .card-title {
-  font-size: 1.5rem;
-  color: #333;
-  margin-top: 15px;
-}
-
-/* Buttons */
-button {
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .text-center h2 {
-    font-size: 2rem;
-  }
-
-  .offers-section h2 {
-    font-size: 2rem;
-  }
-
-  .offer-card img, .text-center .card img {
-    height: 200px;
-  }
-}
-
-@media (max-width: 576px) {
-  .text-center h2 {
-    font-size: 1.8rem;
-  }
-
-  .offers-section h2 {
-    font-size: 1.8rem;
-  }
-
-  .offer-card img, .text-center .card img {
-    height: 150px;
-  }
-}
-
-/* General styles */
-body {
-  background-color: #f8f9fa;
-}
-
-/* Custom Button Styling */
-.custom-btn {
-  background-color: #b22222; /* Red Gold */
-  color: #000; /* Black */
-  border: none;
-}
-
-.custom-btn:hover {
-  background-color: #a30000; /* Darker Red Gold on hover */
-  color: #fff; /* White on hover */
-}
-
-/* Card Styling */
-.custom-card {
-  border: 2px solid #000; /* Black Border */
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
-}
-
-.custom-card:hover {
-  transform: scale(1.05); /* Slightly increase size on hover */
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow */
-}
-
-/* Text styling inside card */
-.custom-card .card-title {
-  font-weight: bold;
-  color: #b22222; /* Red Gold */
-}
-
-/* Media Queries for responsiveness */
-@media (max-width: 780px) {
-  h2, h3 {
-    font-size: 1.5rem;
-  }
-
-  .custom-btn {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-  
-  .custom-card {
-    margin-bottom: 20px;
-  }
-}
-.home-bg {
-  background-image: url('../images/homebg.jpg');
-  background-size: cover;
+/* Navbar and Carousel adjustments */
+.carousel .carousel-item {
+  height: calc(95vh - 60px); /* Adjust for the header */
   background-position: center;
-  height: 50vh; /* Full viewport height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-size: cover;
 }
 
-.home-bg-text {
-  text-align: center;
-  color: white;
+.carousel-caption h2 {
+  font-size: 48px;
+  color: #f2f2f2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.about-rooms {
-  margin: 3rem 0;
-}
-
-.navbar-custom {
-  position: relative;
-  z-index: 1000; /* Ensure it stays above the background */
-}
-.benefits-section{
-
-}
-
-.benefits-section .benefits p:hover {
-  color: white;
-  cursor: pointer;
-}
-
-.about-rooms-section {
-  background-color: #f8f9fa;
-  padding: 50px;
-}
-
-.custom-list li {
-  padding: 10px 0;
+.carousel-caption button {
+  background-color: #d4a017; /* Golden button */
+  border: none;
+  padding: 10px 20px;
   font-size: 18px;
 }
 
-.custom-list li span {
+@media (max-width: 768px) {
+  .carousel-caption h2 {
+    font-size: 32px;
+  }
+  .carousel-caption button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+
+
+/* About Our Rooms Section */
+.about-rooms-section {
+  background-color: #f7f7f7;
+}
+
+.custom-list li {
+  font-size: 18px;
+  padding: 5px;
+  color: #333;
+}
+
+.custom-list li::before {
+  content: '✓';
   margin-right: 10px;
-}
-.benefits-section {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  color: #d4a017;
 }
 
-.benefits-section.show {
-  opacity: 1;
+/* Room Cards */
+.room-cards .room-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.benefits-section .benefits p {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+.room-cards .room-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.benefits-section .benefits p:nth-child(1) {
-  transition-delay: 0.5s;
+.room-card .card-title {
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.benefits-section .benefits p:nth-child(2) {
-  transition-delay: 1s;
+@media (max-width: 768px) {
+  .room-cards .room-card {
+    margin-bottom: 20px;
+  }
 }
 
-.benefits-section .benefits p:nth-child(3) {
-  transition-delay: 1.5s;
+.benefit-section {
+  background-color: #202020; /* Dark background */
+  color: #fff;
+  padding: 50px 0;
 }
 
-/* Add more transition delays for other items */
-.benefits-section {
-  opacity: 0;
-  transition: opacity 1s ease;
+.benefit-section h2 {
+  color: #ffc107; /* Optional: Highlight the heading with a 'warning' color */
+  margin-bottom: 20px;
 }
 
-.benefits-section.visible {
-  opacity: 1;
+.benefit-section p {
+  color: #ddd;
 }
 
-.benefits p {
-  opacity: 0;
-  transition: opacity 0.5s ease;
+.benefit-section ul {
+  list-style: none;
+  padding: 0;
 }
 
-.benefits p.visible {
-  opacity: 1;
+.benefit-section li {
+  color: #ddd;
+  margin: 5px 0;
+}
+
+.check-availability-btn {
+  background-color: #ffc107; /* Warning color */
+  color: #151515;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.check-availability-btn:hover {
+  background-color: #e0a800;
+}
+.about-rooms-section {
+  background-color: #f8f9fa; /* Light background color */
+  margin: 5px;
+}
+
+.about-rooms-gsap-text {
+  padding: 10px;
+}
+
+.check-availability-btn {
+  background-color: #daa520; /* Golden color for the button */
+  border: none;
+  color: white;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.check-availability-btn:hover {
+  background-color: #b8860b; /* Darker shade of golden on hover */
+}
+
+.about-rooms-icon ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0;
+  text-align: center;
+}
+
+.about-rooms-icon ul li {
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.gsap-text {
+  margin-bottom: 10px; /* Add bottom margin for separation */
+}
+
+@media (max-width: 768px) {
+  .about-rooms-gsap-text,
+  .about-rooms-icon {
+    text-align: center; /* Center align text on smaller screens */
+  }
+  
+  .about-rooms-icon ul {
+    text-align: center; /* Center align list items */
+  }
 }
