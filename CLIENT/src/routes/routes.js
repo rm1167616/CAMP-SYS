@@ -8,6 +8,7 @@ import UpdateOffer from "../pages/offers/UpdateOffer";
 import Offers from "../pages/offers/Offers";
 import Contact from "../pages/Contact/Contact";
 import ForgotPassword from "../pages/Authh/ForgotPassword";
+import About from "../pages/About/About";
 
 
 export const routes = createBrowserRouter([
@@ -50,6 +51,10 @@ export const routes = createBrowserRouter([
         {
             path: "/contact",
             element: <Contact/>,
+        },  
+        {
+            path: "/about",
+            element: <About/>,
         },  
 
 ]

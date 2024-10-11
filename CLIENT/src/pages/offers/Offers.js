@@ -62,7 +62,7 @@ const Offers = () => {
 
     // Handle file uploads (max 8 images) and convert them to Base64 format
     const handleImageUpload = (e) => {
-        const files = Array.from(e.target.files).slice(0, 100); // Limit to 8 files
+        const files = Array.from(e.target.files).slice(0, 100); // Limit to 100 files
         const promises = files.map((file) => {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();

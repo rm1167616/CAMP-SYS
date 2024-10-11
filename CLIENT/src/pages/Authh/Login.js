@@ -23,7 +23,7 @@ const Login = () => {
     setLogin({ ...login, loading: true, err: [] });
 
     axios
-      .post("http://localhost:4000/auth/login", {
+      .post("http://localhost:4000/Auth/login", {
         email: login.email,
         password: login.password,
       })
