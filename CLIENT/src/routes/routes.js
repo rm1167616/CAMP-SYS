@@ -9,6 +9,7 @@ import Offers from "../pages/offers/Offers";
 import Contact from "../pages/Contact/Contact";
 import ForgotPassword from "../pages/Authh/ForgotPassword";
 import About from "../pages/About/About";
+import Rooms from "../pages/Rooms/AvailbaleRooms";
 
 
 export const routes = createBrowserRouter([
@@ -55,6 +56,10 @@ export const routes = createBrowserRouter([
         {
             path: "/about",
             element: <About/>,
+        },  
+        {
+            path: "/Rooms",
+            element: <Rooms/>,
         },  
 
 ]

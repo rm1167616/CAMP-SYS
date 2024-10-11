@@ -73,6 +73,9 @@ const Header = () => {
             <Nav.Link as={Link} to="/about" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
               About Us
             </Nav.Link>
+            <Nav.Link as={Link} to="/Rooms" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
+              RoomsAvailable
+            </Nav.Link>
           </div>
           <Nav.Link className='SignIN text-warning' as={Link} to="/login" data-animation ="slideInLeft" style={{animationDelay: "0.2s"}}>Login</Nav.Link>
         </Nav>
