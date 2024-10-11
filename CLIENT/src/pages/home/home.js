@@ -166,7 +166,7 @@ const HomePage = () => {
     }, []);
 
     return (
-      <Container fluid className="benefit-section text-center">
+      <Container fluid className="benefit-section text-center" >
         <Row className="justify-content-center">
           <Col xs={12} md={6} className="benefit-text gsap-text text-left">
             <h2>Why Book Direct?</h2>
