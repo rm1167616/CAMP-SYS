@@ -21,7 +21,6 @@ gsap.registerPlugin(ScrollTrigger);
 const styles = {
   iconList: {
     listStyle: 'none',
-    paddingLeft: '0',
     color: '#B49A68', // Golden color
   },
   iconItem: {
@@ -38,24 +37,28 @@ const styles = {
 
 const NewRoomFeatureSection = () => {
   return (
-    <Container fluid className="room-features-section bg-white text-center" style={{ padding: '50px 0' }}>
-      <Row className="justify-content-center">
-        <Col xs={12} md={6} className="text-left">
-        <h6 className="text-dark text-left">STAY WITH US</h6>
+    <Container fluid className="room-features-section bg-white text-center" style={{margin_top:'50px'}} >
+      <Row className="justify-content-center" >
+        <Col xs={12} md={6} className="text-left" >
+        <h6 className="text-dark text-left" >STAY WITH US</h6>
           <h2 className="text-dark text-center">Why Choose Our Rooms</h2>
           <p className="text-muted">
-          Years of hospitality experience have gone into fine-tuning our rooms to guarantee a great stay. We keep things simple for you by making sure everything you need is included as standard. High-speed internet access and a desk in your room helps to make life easier when staying over as a business guest or adjoining rooms give peace of mind for families and cots are available on request.
+          Years of hospitality experience have gone into fine-tuning our rooms to guarantee a great stay.
+          <p className="text-muted">
+          We keep things simple for you by making sure everything you need is included as standard.</p> 
+          <p className="text-muted">
+           High-speed internet access and a desk in your room helps to make life easier when staying over as a business guest or adjoining rooms give peace of mind for families and cots are available on request.</p>
 
-Just one and a half miles from the centre of Bromley with its bars, restaurants, The Glades Shopping Centre and train station.
-
-Bromley South Railway Station offers regular fast trains to London’s Victoria Station in less than 20 minutes which means that all the Central London attractions and West End theatres are within very easy reach.
-
+Just one and a half miles from the centre of Bromley with its bars, restaurants, The Glades Shopping Centre and train station.</p>
+<p className="text-muted">
+Bromley South Railway Station offers regular fast trains to London’s Victoria Station in less than 20 minutes which means that all the Central London attractions and West End theatres are within very easy reach.</p>
+<p className="text-muted">
 There is public transport available to Greenwich Village, the Royal Observatory, Cutty Sark and O2 Arena. For Canary Wharf, Excel Exhibition Centre and the City of London, get on the Docklands Light Railway from Lewisham (2 miles away). Croydon is 6 miles away.
 
 Keep up with your fitness routine when you are away. Our air-conditioned gym room is equipped with weight, rowing and running machines.
           </p>
         </Col>
-        <Col xs={12} md={6} className="text-Right">
+        <Col xs={12} md={6} className="text-center">
           <ul style={styles.iconList}>
             <li style={styles.iconItem}>
               <span style={styles.icon}>🚗</span> <span>Free Parking</span>
@@ -207,7 +210,7 @@ const HomePage = () => {
             <p>Years of hospitality experience have gone into fine-tuning our rooms to guarantee a great stay.</p>
             <Button className="check-availability-btn" variant='Warning'>Check Availability</Button>
           </Col>
-          <Col xs={12} md={6} className="about-rooms-icon gsap-text text-right">
+          <Col xs={12} md={6} className="about-rooms-icon gsap-text text-center">
             <ul>
               <li>🚗 Free Parking</li>
               <li>📶 Free Wifi</li>
