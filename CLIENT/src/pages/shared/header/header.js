@@ -59,7 +59,7 @@ const Header = () => {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link as={Link} to="/offers" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
-              Offers
+              Holidays
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
@@ -67,6 +67,12 @@ const Header = () => {
               Contact
             </Nav.Link>
           </Nav.Item>
+          <Nav.Link as={Link} to="/offers" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
+              Offers
+            </Nav.Link>
+            <Nav.Link as={Link} to="/about" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
+              About Us
+            </Nav.Link>
           </div>
           <Nav.Link className='SignIN text-warning' as={Link} to="/login" data-animation ="slideInLeft" style={{animationDelay: "0.2s"}}>Login</Nav.Link>
         </Nav>
