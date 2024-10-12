@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/main.css';
 import hotle4 from '../images/hotle4.webp';
@@ -12,10 +12,30 @@ import hotle10 from '../images/hotle10.jpg';
 // Import the RoomCards component
 import RoomCards from '../homeused/cards';
 import RoomFeatures from '../homeused/roomfeature';
-import OfferRoomCards from '../homeused/OfferRoomCards';
-
+import AboutRoom from '../homeused/AboutRoom';
+import OfferCard from '../offers/Offers'; // Adjust path as necessary
 
 const HomePage = () => {
+  // Example offers data
+  const offers = [
+    {
+      id: 1,
+      title: "Summer Sale",
+      description: "Get 20% off on all items during the summer.",
+      discount: "20%",
+      images: ["https://via.placeholder.com/400x300"] // Replace with actual image URLs
+    },
+    // Add other offers as needed, but only show one
+  ];
+
+  const handleEdit = (offer) => {
+    // Implement your edit logic here
+  };
+
+  const handleDelete = (id) => {
+    // Implement your delete logic here
+  };
+
   return (
     <>
       {/* Carousel Section */}
@@ -33,22 +53,23 @@ const HomePage = () => {
         </Carousel>
       </div>
 
+    
+
       {/* Room Cards Section */}
       <div className="room-cards-section">
         <RoomCards />
       </div>
-      <div>
-      {/* Other sections of the homepage */}
+
+      {/* Room Features Section */}
       <div style={{ backgroundColor: '#4a5a3e', padding: '50px 0' }}>
         <RoomFeatures />
       </div>
-      {/* Other sections of the homepage */}
-    </div>
 
-    <div className="room-cards-section">
-    <OfferRoomCards />
+      {/* About Room Section */}
+      <div className="room-cards-section">
+        <AboutRoom />
       </div>
-    
+
     </>
   );
 };
