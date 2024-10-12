@@ -12,6 +12,8 @@ import hotle10 from '../images/hotle10.jpg';
 // Import the RoomCards component
 import RoomCards from '../homeused/cards';
 import RoomFeatures from '../homeused/roomfeature';
+import OfferRoomCards from '../homeused/OfferRoomCards';
+
 
 const HomePage = () => {
   return (
@@ -42,6 +44,11 @@ const HomePage = () => {
       </div>
       {/* Other sections of the homepage */}
     </div>
+
+    <div className="room-cards-section">
+    <OfferRoomCards />
+      </div>
+    
     </>
   );
 };
