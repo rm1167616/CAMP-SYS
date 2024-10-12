@@ -34,6 +34,7 @@ const BenefitPage = () => {
           <Button className="check-availability-btn" variant="warning">
             Check Availability
           </Button>
+          
         </Col>
         <Col xs={12} md={6} className="benefit-icon gsap-text text-right">
           <ul>
