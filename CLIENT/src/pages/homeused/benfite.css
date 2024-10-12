@@ -1,0 +1,35 @@
+/* Benefit Section */
+.benefit-section {
+    background-color: #202020; /* Dark background */
+    color: #fff;
+    margin-top: 15%;
+  }
+  
+  .benefit-section h2 {
+    color: #ffc107; /* Optional: Highlight heading */
+    margin-bottom: 20px;
+  }
+  
+  .benefit-section p {
+    color: #ddd;
+  }
+  
+  .benefit-section ul li {
+    color: #ddd;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .benefit-section ul li::before {
+    content: '✓';
+    margin-right: 10px;
+    color: #ffc107;
+  }
+  
+  @media (max-width: 768px) {
+    .benefit-section {
+      text-align: center;
+    }
+  }
+  
