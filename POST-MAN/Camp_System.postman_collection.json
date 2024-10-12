@@ -192,7 +192,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:4000/offers/delete/1",
+							"raw": "http://localhost:4000/offers/delete/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -201,7 +201,7 @@
 							"path": [
 								"offers",
 								"delete",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -262,12 +262,194 @@
 			]
 		},
 		{
-			"name": "New Request",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
+			"name": "rooms",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "type",
+									"type": "text"
+								},
+								{
+									"key": "descreption",
+									"value": "type",
+									"type": "text"
+								},
+								{
+									"key": "numOfRooms",
+									"value": "25",
+									"type": "text"
+								},
+								{
+									"key": "imgpath",
+									"type": "file",
+									"src": "/C:/Users/Computer city/OneDrive/Pictures/WhatsApp Image 2024-07-03 at 02.19.31_b8e1d8f2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "rad",
+									"type": "text"
+								},
+								{
+									"key": "descreption",
+									"value": "rad",
+									"type": "text"
+								},
+								{
+									"key": "numOfRooms",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "imgpath",
+									"type": "file",
+									"src": "/C:/Users/Computer city/OneDrive/Pictures/Screenshots/Screenshot (304).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms/update/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms",
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "rad",
+									"type": "text"
+								},
+								{
+									"key": "descreption",
+									"value": "rad",
+									"type": "text"
+								},
+								{
+									"key": "numOfRooms",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "imgpath",
+									"type": "file",
+									"src": "/C:/Users/Computer city/OneDrive/Pictures/Screenshots/Screenshot (304).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms/delete/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get rooms",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "rad",
+									"type": "text"
+								},
+								{
+									"key": "descreption",
+									"value": "rad",
+									"type": "text"
+								},
+								{
+									"key": "numOfRooms",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "imgpath",
+									"type": "file",
+									"src": "/C:/Users/Computer city/OneDrive/Pictures/Screenshots/Screenshot (304).png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/rooms/rooms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"rooms",
+								"rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

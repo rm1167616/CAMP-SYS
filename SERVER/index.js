@@ -26,3 +26,5 @@ app.listen(4000 || process.env.port, () => {
 app.use("/Auth",require("./routes/Auth/Auth"));
 //=========== OFFERS =========//
 app.use("/offers",require("./routes/offers/offers"));
+//=========== ROOMS =========//
+app.use("/rooms",require("./routes/rooms/rooms"));
