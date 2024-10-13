@@ -3,27 +3,33 @@ import { Card, Button, Row, Col, Modal, Form, Carousel } from 'react-bootstrap';
 import "../../pages/css/offers.css";
 
 const Offers = () => {
-    // State to manage the list of offers
+    // State to manage the list of hotel room offers
     const [offers, setOffers] = useState([
         {
             id: 1,
-            title: "Summer Sale",
-            description: "Get 20% off on all items during the summer.",
-            discount: "20%",
-            images: [] // Images will be uploaded by the user
+            title: "Deluxe Room Special",
+            description: "Enjoy a luxurious stay in our deluxe room with complimentary breakfast.",
+            discount: "15% off",
+            roomType: "Deluxe Room",
+            features: "King-sized bed, Mini-bar, Ocean view",
+            images: []
         },
         {
             id: 2,
-            title: "Winter Clearance",
-            description: "50% off on selected items.",
-            discount: "50%",
+            title: "Family Suite Offer",
+            description: "Book our family suite for a comfortable stay with up to 4 guests.",
+            discount: "20% off",
+            roomType: "Family Suite",
+            features: "2 Bedrooms, Kitchenette, Balcony",
             images: []
         },
         {
             id: 3,
-            title: "Spring Special",
-            description: "Buy one, get one free on all spring clothing.",
-            discount: "Buy 1 Get 1 Free",
+            title: "Weekend Getaway",
+            description: "Stay 2 nights and get 1 night free in any of our standard rooms.",
+            discount: "Buy 2 Get 1 Free",
+            roomType: "Standard Room",
+            features: "Free Wi-Fi, Coffee maker, Garden view",
             images: []
         }
     ]);
@@ -31,7 +37,7 @@ const Offers = () => {
     // Modal visibility state
     const [show, setShow] = useState(false);
     // State to track the current offer being edited or added
-    const [currentOffer, setCurrentOffer] = useState({ id: null, title: '', description: '', discount: '', images: [] });
+    const [currentOffer, setCurrentOffer] = useState({ id: null, title: '', description: '', discount: '', roomType: '', features: '', images: [] });
     // State to toggle between Add and Edit modes
     const [isEditMode, setIsEditMode] = useState(false);
 
@@ -39,7 +45,7 @@ const Offers = () => {
     const handleClose = () => setShow(false);
 
     // Open the modal for adding or editing offers
-    const handleShow = (offer = { id: null, title: '', description: '', discount: '', images: [] }, editMode = false) => {
+    const handleShow = (offer = { id: null, title: '', description: '', discount: '', roomType: '', features: '', images: [] }, editMode = false) => {
         setCurrentOffer(offer);
         setIsEditMode(editMode);
         setShow(true);
@@ -60,9 +66,9 @@ const Offers = () => {
         setOffers(offers.filter((offer) => offer.id !== id));
     };
 
-    // Handle file uploads (max 8 images) and convert them to Base64 format
+    // Handle file uploads and convert them to Base64 format
     const handleImageUpload = (e) => {
-        const files = Array.from(e.target.files).slice(0, 100); // Limit to 100 files
+        const files = Array.from(e.target.files).slice(0, 8); // Limit to 8 images
         const promises = files.map((file) => {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -85,8 +91,7 @@ const Offers = () => {
 
     return (
         <div className="offers-container">
-            <h1 className="text-center mb-4 mt-4">Current Offers</h1>
-            {/* Button to add a new offer */}
+            <h1 className="text-center mb-4 mt-4">Hotel Room Offers</h1>
             <Button
                 variant="success"
                 className="add-custom-btn"
@@ -94,14 +99,12 @@ const Offers = () => {
                 Add Offer
             </Button>
 
-            {/* Container for all offer cards */}
             <div className="offer-card-container">
                 <Row className="justify-content-center mt-3">
                     {offers.length > 0 ? (
                         offers.map((offer) => (
                             <Col md={12} key={offer.id} className="mb-4 animated-card">
                                 <Card className="offer-card">
-                                    {/* Image carousel for each offer */}
                                     {offer.images.length > 0 ? (
                                         <Carousel>
                                             {offer.images.map((image, index) => (
@@ -127,10 +130,15 @@ const Offers = () => {
                                             <strong>Description:</strong> {offer.description}
                                         </Card.Text>
                                         <Card.Text>
+                                            <strong>Room Type:</strong> {offer.roomType}
+                                        </Card.Text>
+                                        <Card.Text>
+                                            <strong>Features:</strong> {offer.features}
+                                        </Card.Text>
+                                        <Card.Text>
                                             <strong>Discount:</strong> {offer.discount}
                                         </Card.Text>
                                         <div className="button-group">
-                                            {/* Edit and Delete buttons for each offer */}
                                             <Button
                                                 variant="info"
                                                 className="me-2 custom-btn"
@@ -156,7 +164,6 @@ const Offers = () => {
                 </Row>
             </div>
 
-            {/* Modal for adding/editing offers */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>{isEditMode ? 'Edit Offer' : 'Add Offer'}</Modal.Title>
@@ -182,6 +189,28 @@ const Offers = () => {
                                 value={currentOffer.description}
                                 onChange={(e) =>
                                     setCurrentOffer({ ...currentOffer, description: e.target.value })
+                                }
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Room Type</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter room type"
+                                value={currentOffer.roomType}
+                                onChange={(e) =>
+                                    setCurrentOffer({ ...currentOffer, roomType: e.target.value })
+                                }
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label>Features</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Enter room features"
+                                value={currentOffer.features}
+                                onChange={(e) =>
+                                    setCurrentOffer({ ...currentOffer, features: e.target.value })
                                 }
                             />
                         </Form.Group>

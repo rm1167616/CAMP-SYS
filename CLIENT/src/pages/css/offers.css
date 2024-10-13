@@ -7,6 +7,16 @@
     box-sizing: border-box !important;
 }
 
+
+/* 
+#4a5a3e
+#b2925a
+*/
+
+html body{
+    background-color: #4a5a3e;
+}
+
 /* Main container for the offers */
 .offers-container {
     display: flex;
@@ -15,6 +25,7 @@
     margin-top: 10px; 
     width: 100%;
     padding: 0 10px; /* Padding on left and right for smaller screens */
+    background-color: #4a5a3e; /* White background for offers container */
 
 }
 
@@ -24,14 +35,20 @@
     width: 100%; /* Ensure it takes the full width */
 }
 
+/* 
+#4a5a3e
+#b2925a
+*/
+
 /* Container for the offer cards */
 /* The cards will be centered horizontally and can wrap if needed */
 .offer-card-container {
     display: flex; /* Use flexbox for alignment */
     justify-content: center; /* Center items horizontally */
     flex-wrap: wrap; /* Allow items to wrap if necessary */
-    width: 100%; /* Ensure it takes full width */
+    width: 100%; /* full width */
     padding: 20px; /* Add padding for spacing */
+    background-color: #4a5a3e;
 }
 
 /* Offer Cards Styling */
@@ -40,7 +57,7 @@
     flex-direction: row; /* Arrange items in a row */
     align-items: center; /* Center content vertically */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animation on hover */
-    border: 1px solid black; /* Black border for contrast */
+    border: 1px solid #b2925a; /* Black border for contrast */
     background-color: white; /* White background for card content */
     border-radius: 10px; /* Rounded corners for a modern look */
     overflow: hidden; /* Hide overflow content */
@@ -97,7 +114,7 @@
 .offer-card .card-title {
     color: black; /* Card title color */
     font-weight: bold; /* Bold font for emphasis */
-    border-bottom: 2px solid #DAA520; /* Gold-yellow underline */
+    border-bottom: 2px solid #b2925a; /* Gold-yellow underline */
     padding-bottom: 10px; /* Space below the title */
 }
 
@@ -144,9 +161,9 @@
 .btn-info.custom-btn,
 .btn-danger.custom-btn,
 .btn-success.add-custom-btn {
-    background-color: black; /* Set to black as the default */
-    border: 2px solid #DAA520; /* Gold-yellow border */
-    color: white; /* Text color */
+    background-color: #b2925a; /* Set to black as the default */
+    border: 2px solid #4a5a3e; /* Gold-yellow border */
+    color: black; /* Text color */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s; /* Animation effects */
     font-family: 'Times New Roman', serif; /* Font */
     
@@ -156,8 +173,7 @@
 .btn-info.custom-btn:hover,
 .btn-danger.custom-btn:hover,
 .btn-success.add-custom-btn:hover {
-    background-color: #DAA520; /* Gold-yellow hover */
-    color: black; /* Text color on hover */
+    color: white; /* Text color on hover */
     transform: translateY(-3px); /* Lift button slightly on hover */
 }
 
