@@ -1,0 +1,58 @@
+/* roomfeature.css */
+
+.room-features-section {
+    background-color: #4a5a3e;
+    padding: 50px 0;
+}
+
+.room-features-section h6 {
+    color: #b2925a;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.room-features-section h2 {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.room-features-section p {
+    color: white;
+    line-height: 1.8;
+}
+
+/* Centering the left text section vertically */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Icons styling */
+.icon-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Stack icons vertically */
+    align-items: flex-start; /* Align icons to the left */
+}
+
+.icon-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Gap between icons */
+    font-size: 1.1em;
+}
+
+.icon-item .icon {
+    margin-right: 15px;
+    font-size: 1.5em;
+    color: #b2925a; /* Gold color */
+}
+
+.icon-item .text {
+    color: #b2925a; /* Gold color for the text */
+}
+

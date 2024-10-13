@@ -1,157 +1,17 @@
-/* Navbar and Carousel adjustments */
-.carousel .carousel-item {
-  height: calc(95vh - 60px); /* Adjust for the header */
-  background-position: center;
-  background-size: cover;
-}
-
-.carousel-caption h2 {
-  font-size: 48px;
-  color: #f2f2f2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.carousel-caption button {
-  background-color: #d4a017; /* Golden button */
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
+.carousel-image {
+  width: 100%;
+  height: 500px; /* Adjust this to the height you want */
+  object-fit: cover; /* This ensures the image covers the area without distortion */
 }
 
 @media (max-width: 768px) {
-  .carousel-caption h2 {
-    font-size: 32px;
-  }
-  .carousel-caption button {
-    font-size: 16px;
-    padding: 8px 16px;
+  .carousel-image {
+    height: 300px; /* Adjust height for smaller screens */
   }
 }
 
-
-
-/* About Our Rooms Section */
-.about-rooms-section {
-  background-color: #f7f7f7;
-}
-
-.custom-list li {
-  font-size: 18px;
-  padding: 5px;
-  color: #333;
-}
-
-.custom-list li::before {
-  content: '✓';
-  margin-right: 10px;
-  color: #d4a017;
-}
-
-/* Room Cards */
-.room-cards .room-card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.room-cards .room-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.room-card .card-title {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .room-cards .room-card {
-    margin-bottom: 20px;
-  }
-}
-
-.benefit-section {
-  background-color: #202020; /* Dark background */
-  color: #fff;
-  padding: 50px 0;
-  margin-top: 14%;
-}
-
-.benefit-section h2 {
-  color: #ffc107; /* Optional: Highlight the heading with a 'warning' color */
-  margin-bottom: 20px;
-}
-
-.benefit-section p {
-  color: #ddd;
-}
-
-.benefit-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.benefit-section li {
-  color: #ddd;
-  margin: 5px 0;
-}
-
-.check-availability-btn {
-  background-color: #ffc107; /* Warning color */
-  color: #151515;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.check-availability-btn:hover {
-  background-color: #e0a800;
-}
-.about-rooms-section {
-  background-color: #f8f9fa; /* Light background color */
-  margin: 5px;
-}
-
-.about-rooms-gsap-text {
-  padding: 10px;
-}
-
-.check-availability-btn {
-  background-color: #daa520; /* Golden color for the button */
-  border: none;
-  color: white;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.check-availability-btn:hover {
-  background-color: #b8860b; /* Darker shade of golden on hover */
-}
-
-.about-rooms-icon ul {
-  list-style-type: none; /* Remove default bullet points */
-  padding: 0;
-  text-align: center;
-}
-
-.about-rooms-icon ul li {
-  font-size: 18px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.gsap-text {
-  margin-bottom: 10px; /* Add bottom margin for separation */
-}
-
-@media (max-width: 768px) {
-  .about-rooms-gsap-text,
-  .about-rooms-icon {
-    text-align: center; /* Center align text on smaller screens */
-  }
+.carousel-section {
+  max-width: 100%;
+  overflow: hidden;
   
-  .about-rooms-icon ul {
-    text-align: center; /* Center align list items */
-  }
 }
