@@ -22,7 +22,7 @@ const Offers = () => {
     }, []); // Only runs once on component mount
 
     const handleClose = () => setShow(false);
-    const handleShow = (offer = { id: null, title: '', description: '', discount: '', images: [] }, editMode = false) => {
+    const handleShow = (offer = { offerName: '', offerDescreption: '', offerDiscount: '', images: [] }, editMode = false) => {
         setCurrentOffer(offer);
         setIsEditMode(editMode);
         setShow(true);
@@ -35,7 +35,7 @@ const Offers = () => {
             axios.put(`http://localhost:4000/offers/update/${currentOffer.id}`, currentOffer)
                 .then(() => {
                     setOffers(offers.map(offer => (offer.id === currentOffer.id ? currentOffer : offer)));
-                    setCurrentOffer({ id: null, title: '', description: '', discount: '', images: [] }); // Reset currentOffer
+                    setCurrentOffer({ title: '', description: '', discount: '', images: [] }); // Reset currentOffer
                 })
                 .catch(error => {
                     console.error('Error updating offer:', error);
@@ -44,7 +44,7 @@ const Offers = () => {
             axios.post('http://localhost:4000/offers/create', currentOffer)
                 .then(response => {
                     setOffers([...offers, response.data]);
-                    setCurrentOffer({ id: null, title: '', description: '', discount: '', images: [] }); // Reset currentOffer
+                    setCurrentOffer({ offerName: '', offerDescreption: '', offerDiscount: '', images: [] }); // Reset currentOffer
                 })
                 .catch(error => {
                     console.error('Error adding offer:', error);
@@ -113,9 +113,9 @@ const Offers = () => {
                                         <img className="fixed-size-image" src="https://via.placeholder.com/400x300" alt="Placeholder Image" />
                                     )}
                                     <Card.Body className="card-content">
-                                        <Card.Title>{offer.title}</Card.Title>
-                                        <Card.Text><strong>Description:</strong> {offer.description}</Card.Text>
-                                        <Card.Text><strong>Discount:</strong> {offer.discount}</Card.Text>
+                                        <Card.Title>{offer.offerName}</Card.Title>
+                                        <Card.Text><strong>Description:</strong> {offer.offerDescreption}</Card.Text>
+                                        <Card.Text><strong>Discount:</strong> {offer.offerDiscount}</Card.Text>
                                         <div className="button-group">
                                             <Button variant="info" className="me-2 custom-btn" onClick={() => handleShow(offer, true)}>
                                                 Edit
