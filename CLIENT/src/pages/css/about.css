@@ -1,85 +1,74 @@
 /* General Body Styling */
+/* Sets the default font, line-height, background color, and text color for the entire page */
 body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    background-color: #f8f9fa;
-    color: #333;
-  }
-  
-  /* Header Styling */
-  .page-header {
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 80px 0;  /* Adjust as needed */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  
-  .header-subtitle {
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
-  
-  /* Navbar Styling */
-  .navbar-below-header {
-    margin-top: 0;  /* Navbar placed directly below the header */
-    z-index: 999;
-    position: sticky;  /* Sticks to the top of the page after scrolling */
-    top: 0;
-    width: 100%;
-    background-color: #343a40 !important;
-  }
-  
-  .navbar-brand {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #f8f9fa !important;
-  }
-  
-  .navbar-nav .nav-link {
-    font-size: 1.1rem;
-    margin-left: 20px;
-    color: #f8f9fa !important;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #ffdd57 !important; /* Golden-yellow hover effect */
-  }
-  
-  /* Section Styling */
-  .section-bg-light {
-    padding: 60px 0;
-    background-color: #f1f1f1;
-  }
-  
-  .section-bg-dark {
-    padding: 60px 0;
-    background-color: #333;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .section-description {
-    font-size: 1.15rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  /* Smooth Scroll */
-  html {
-    scroll-behavior: smooth;
-  }
-  
+  font-family: 'Times New Roman', serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Scoped styling for the About component */
+.hotel-image {
+  max-height: 700px;
+  object-fit: cover;
+}
+
+/* Navbar Styling */
+.navbar-below-header {
+  background-color: #343a40; /* Dark background color */
+  margin-top: -10px;
+}
+
+.navbar-below-header .nav-link {
+  color: #ffffff; /* White text for navbar items */
+  font-weight: bold;
+  margin: 0 15px;
+  text-transform: uppercase;
+}
+
+.navbar-below-header .nav-link:hover {
+  color: #b49130; /* Gold color on hover */
+}
+
+/* Header Styling */
+.page-header {
+  background-color: #f8f9fa; /* Light background color */
+  padding: 30px 0;
+  text-align: center;
+}
+
+.header-title {
+  color: #b49130; /* Gold color for the header */
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Section Styling */
+.section-bg-light {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 40px 0;
+}
+
+.section-bg-dark {
+  background-color: #343a40; /* Dark grey background */
+  padding: 40px 0;
+}
+
+.section-title {
+  color: #b49130; /* Gold color for section titles */
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.section-bg-dark .section-description {
+  color: #ffffff; /* White text for dark sections */
+}
