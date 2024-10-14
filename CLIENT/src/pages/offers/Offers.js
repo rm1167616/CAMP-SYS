@@ -12,7 +12,7 @@ const Offers = () => {
 
     // Fetch offers from the backend when the component mounts
     useEffect(() => {
-        axios.get('http://localhost:4000/api/offers')
+        axios.get('http://localhost:4000/offers/offers')
             .then(response => {
                 setOffers(response.data);
             })
@@ -32,7 +32,7 @@ const Offers = () => {
     const handleSave = () => {
         if (isEditMode) {
             // Fix: Use backticks for template literals
-            axios.put(`http://localhost:4000/api/offers/${currentOffer.id}`, currentOffer)
+            axios.put(`http://localhost:4000/offers/update/${currentOffer.id}`, currentOffer)
                 .then(() => {
                     setOffers(offers.map(offer => (offer.id === currentOffer.id ? currentOffer : offer)));
                     setCurrentOffer({ id: null, title: '', description: '', discount: '', images: [] }); // Reset currentOffer
@@ -41,7 +41,7 @@ const Offers = () => {
                     console.error('Error updating offer:', error);
                 });
         } else {
-            axios.post('http://localhost:4000/api/offers', currentOffer)
+            axios.post('http://localhost:4000/offers/create', currentOffer)
                 .then(response => {
                     setOffers([...offers, response.data]);
                     setCurrentOffer({ id: null, title: '', description: '', discount: '', images: [] }); // Reset currentOffer
@@ -56,7 +56,7 @@ const Offers = () => {
     // Delete offer
     const handleDelete = (id) => {
         // Fix: Use backticks for template literals
-        axios.delete(`http://localhost:4000/api/offers/${id}`)
+        axios.delete(`http://localhost:4000/offers/delete/${id}`)
             .then(() => {
                 setOffers(offers.filter((offer) => offer.id !== id));
             })
