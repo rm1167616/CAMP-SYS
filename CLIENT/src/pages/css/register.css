@@ -1,24 +1,33 @@
+
 /* Background and overall container styling for the registration page */
 .background-img {
     background-image: url('../images/dahab-background.jpg'); /* Set the background image */
     background-size: cover; /* Cover the entire area */
-    background-position: center; /* Center the image */
+    background-position: center center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed;
+    background-size: cover;
     height: 100vh; /* Full height of the viewport */
     display: flex; /* Use flexbox to center the form */
     align-items: center; /* Center vertically */
     justify-content: center; /* Center horizontally */
 }
 
-/* Existing styles for the login-container */
-.login-container {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    padding: 40px; /* Reduced padding for better fit */
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Increased width for larger form */
-    width: 100%; /* Ensure it fills the container */
-    text-align: center;
-}
 
-/* Add your existing styles here... */
+/* Gender in Register */
+
+.select-gender{
+    background-color: #fff; /* White input boxes */
+    border: 1px solid #b2925a !important; /* Gold-like yellow border */
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 16px;
+    color: #000;
+    font-family: 'Times New Roman', serif;
+    appearance: none; /* Optional: removes default styling in some browsers */
+}  
+
+.select-gender:hover{
+    border-color: #ffdd00b7;
+    box-shadow: 0px 0px 5px #ffdd0093; 
+}

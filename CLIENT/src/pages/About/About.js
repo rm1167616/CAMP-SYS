@@ -33,12 +33,11 @@ const About = () => {
             {/* Consistent Header below Navbar */}
             <header className="page-header">
                 <Container>
-                    <h1 className="header-title">BLACK PRINCE HOTEL</h1>
-                </Container>
+                    <h1 className="header-title">BLACK PRINCE HOTEL</h1>                </Container>
             </header>
 
             {/* Main Content Sections */}
-            <div style={{ paddingTop: '50px' }}>
+            <div style={{ paddingTop: '6px' }}>
                 {/* Information Section */}
                 <section id="information" className="section-bg-light">
                     <Container>
