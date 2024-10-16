@@ -15,7 +15,7 @@ router.post(
     // Validation middleware
     [
       body('title').notEmpty().withMessage('Title is required'),
-      body('descreption').notEmpty().withMessage('Description is required'),
+      body('description').notEmpty().withMessage('Description is required'),
       body('discount').isFloat({ min: 0 }).withMessage('Discount must be a positive number'),
     ],
   
@@ -28,13 +28,13 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
       }
   
-      const { title, descreption, discount } = req.body;
+      const { title, description, discount } = req.body;
   
       try {
         // CREATE OBJECT OF OFFERS TO ACCESS DATABASE
         const offerObj = {
           offerName: title,
-          offerDescreption: descreption,
+          offerDescreption: description,
           offerDiscount: discount,
         };
   
@@ -82,7 +82,7 @@ router.put(
     upload.array("offersImgs"), // For updating images if provided
     [
       body('title').optional().notEmpty().withMessage('Title cannot be empty'),
-      body('descreption').optional().notEmpty().withMessage('Description cannot be empty'),
+      body('description').optional().notEmpty().withMessage('Description cannot be empty'),
       body('discount').optional().isFloat({ min: 0 }).withMessage('Discount must be a positive number'),
     ],
     async (req, res) => {
@@ -102,12 +102,12 @@ router.put(
           return res.status(404).json({ msg: "Offer not found" });
         }
   
-        const { title, descreption, discount } = req.body;
+        const { title, description, discount } = req.body;
   
         // Build the updated offer object, keeping old values if not provided
         const updatedOffer = {
           offerName: title || existingOffer[0].offerName,
-          offerDescreption: descreption || existingOffer[0].offerDescreption,
+          offerDescreption: description || existingOffer[0].offerDescreption,
           offerDiscount: discount !== undefined ? discount : existingOffer[0].offerDiscount,
         };
   
