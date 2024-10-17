@@ -1,19 +1,50 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Carousel } from 'react-bootstrap';
+import About1 from '../../pages/About/images/hotel.jpg';
+import About2 from '../../pages/About/images/Room1.jpg';
+import About3 from '../../pages/About/images/friends.jpg';
+import About4 from '../../pages/About/images/special-room.jpg';
 import '../../pages/css/about.css';
-import hotelImage from '../../pages/About/images/hotel.jpg';
 
 const About = () => {
     return (
         <div>
-            {/* Top Image (consistent with first page) */}
-            <img 
-                className='hotel-image'
-                src={hotelImage} 
-                alt="Hotel Background"
-                style={{ width: '100%', maxHeight: '700px' }} 
-            />
+            {/* Image Slider (Carousel) */}
+            <Carousel>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={About1}
+                        alt="Hotel Image 1"
+                        style={{ maxHeight: '700px', objectFit: 'cover' }}
+                    />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={About2}
+                        alt="Hotel Image 2"
+                        style={{ maxHeight: '700px', objectFit: 'cover' }}
+                    />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={About3}
+                        alt="Hotel Image 3"
+                        style={{ maxHeight: '700px', objectFit: 'cover' }}
+                    />
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={About4}
+                        alt="Hotel Image 3"
+                        style={{ maxHeight: '700px', objectFit: 'cover' }}
+                    />
+                </Carousel.Item>
+            </Carousel>
 
             {/* Sticky Navbar directly below image */}
             <Navbar expand="lg" variant="dark" className="navbar-below-header shadow-lg">
@@ -33,7 +64,8 @@ const About = () => {
             {/* Consistent Header below Navbar */}
             <header className="page-header">
                 <Container>
-                    <h1 className="header-title">BLACK PRINCE HOTEL</h1>                </Container>
+                    <h1 className="header-title">BLACK PRINCE HOTEL</h1>
+                </Container>
             </header>
 
             {/* Main Content Sections */}
@@ -77,7 +109,7 @@ const About = () => {
                         </p>
                     </Container>
                 </section>
-            </div> 
+            </div>
         </div>
     );
 };

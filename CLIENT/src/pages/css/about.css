@@ -6,15 +6,15 @@ body {
   color: #333;
 }
 
-/* Scoped styling for the About component */
-.hotel-image {
+/* Carousel Image Styling */
+.carousel-item img {
   max-height: 700px;
   object-fit: cover;
   transition: transform 0.5s ease-in-out; /* Smooth zoom effect */
 }
 
-/* Zoom effect on hover for hotel images */
-.hotel-image:hover {
+/* Zoom effect on hover for carousel images */
+.carousel-item img:hover {
   transform: scale(1.05); /* Slightly enlarge the image on hover */
 }
 
@@ -22,6 +22,154 @@ body {
 .navbar-below-header {
   background-color: #4a5a3e !important; 
   margin-top: -10px;
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.navbar-below-header .nav-link {
+  color: #ffffff; /* White text for navbar items */
+  font-weight: bold;
+  margin: 0 15px;
+  text-transform: uppercase;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar-below-header .nav-link:hover {
+  color: #b2925a; /* Gold color on hover */
+}
+
+/* Style for the Navbar toggle button */
+button.navbar-toggler {
+  background-color: #4a5a3e; /* Color for the toggle button lines */
+}
+
+.navbar-toggler {
+  border-color: #4a5a3e !important; /* Color for the toggle button border */
+}
+
+.navbar-toggler-icon {
+  background-color: #4a5a3e; /* Color for the toggle button lines */
+}
+
+/* Header Styling */
+.page-header {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+  text-align: center;
+  animation: fadeIn 1s ease; /* Fade-in effect for the header */
+}
+
+.header-title {
+  color: #b2925a; /* Gold color for the header */
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Section Styling */
+.section-bg-light {
+  background-color: #f8f9fa; /* Light grey background */
+  padding: 40px 0;
+  animation: slideInUp 0.5s ease forwards; /* Slide-in effect for sections */
+}
+
+.section-bg-dark {
+  background-color: #4a5a3e; 
+  padding: 40px 0;
+}
+
+.section-title {
+  color: #b2925a; /* Gold color for section titles */
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.section-bg-dark .section-description {
+  color: #ffffff; /* White text for dark sections */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Button Animation */
+.add-custom-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.add-custom-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(178, 146, 90, 0.5); /* Semi-transparent overlay */
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.add-custom-btn:hover::after {
+  transform: translateY(0);
+}
+
+/* Smooth Transition for Buttons */
+.custom-btn {
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth button transition */
+}
+
+.custom-btn:hover {
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+/* General Body Styling */
+body {
+  font-family: 'Times New Roman', serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Carousel Image Styling */
+.carousel-item img {
+  max-height: 700px;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out; /* Smooth zoom effect */
+}
+
+/* Zoom effect on hover for carousel images */
+.carousel-item img:hover {
+  transform: scale(1.05); /* Slightly enlarge the image on hover */
+}
+
+/* Navbar Styling */
+.navbar-below-header {
+  background-color: #4a5a3e !important; 
+  margin-top: 290px;
   transition: background-color 0.3s ease; /* Smooth background transition */
 }
 

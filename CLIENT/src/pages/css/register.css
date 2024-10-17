@@ -18,7 +18,7 @@
 
 .select-gender{
     background-color: #fff; /* White input boxes */
-    border: 1px solid #b2925a !important; /* Gold-like yellow border */
+    border: 1px solid #4a5a3e !important; /* Gold-like yellow border */
     border-radius: 6px;
     padding: 15px;
     font-size: 16px;
@@ -28,6 +28,6 @@
 }  
 
 .select-gender:hover{
-    border-color: #ffdd00b7;
-    box-shadow: 0px 0px 5px #ffdd0093; 
+    border-color: #4a5a3e;
+    box-shadow: 0px 0px 5px #60774f; 
 }
