@@ -12,7 +12,6 @@
 #4a5a3e
 #b2925a
 */
-<<<<<<< HEAD
 /* 
 html body{
     background-color: #4a5a3e;
@@ -20,10 +19,10 @@ html body{
 .body{
     background-color: #4a5a3e;
 }
-=======
 
 
->>>>>>> 7f0aa62a93e7b2e1f339f50de8cad1f0fefa578c
+
+
 /* Main container for the offers */
 .offers-container {
     display: flex;

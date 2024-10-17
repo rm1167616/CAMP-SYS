@@ -10,7 +10,6 @@ import hotle9 from '../images/hotle9.jpg';
 import hotle10 from '../images/hotle10.jpg';
 
 const getHomePageOffer = () => {
-    // If it returns a single object, wrap it in an array
     return [
       {
         title: "Special Offer",
@@ -19,34 +18,34 @@ const getHomePageOffer = () => {
         images: [hotle6],  // Example image
       }
     ];
-  };
-  
+};
+
 const Offers = () => {
-    // State to manage the list of offers
-    const [offers, setOffers] = useState([]); // List of offers fetched from the backend
-    const [show, setShow] = useState(false); // State to manage the visibility of the modal
-    const [currentOffer, setCurrentOffer] = useState({ title: '', description: '', discount: '', offersImgs: [] }); // State for the current offer
-    const [isEditMode, setIsEditMode] = useState(false); // Flag to determine if we are editing an existing offer
+    const [offers, setOffers] = useState([]);
+    const [show, setShow] = useState(false);
+    const [currentOffer, setCurrentOffer] = useState({ title: '', description: '', discount: '', offersImgs: [] });
+    const [isEditMode, setIsEditMode] = useState(false);
+    const [errorMessage, setErrorMessage] = useState(''); // State to manage error messages
 
-    // Fetch offers from the backend when the component mounts
+    useEffect(() => {
+        fetchOffers();
+    }, []);
 
-        // Fetch offers from backend
-        useEffect(() => {
-            fetchOffers();
-        }, []);
-    
-        // Function to fetch offers
-        const fetchOffers = () => {
-            axios.get('http://localhost:4000/offers/offers')
-                .then(response => setOffers(response.data)) // Update the offers state with the fetched data
-                .catch(error => console.error('Error fetching offers:', error)); // Log any error during the fetch
-        };
+    // Function to fetch offers
+    const fetchOffers = async () => {
+        try {
+            const response = await axios.get('http://localhost:4000/offers/offers');
+            setOffers(response.data);
+        } catch (error) {
+            handleError('Error fetching offers', error);
+        }
+    };
 
     // Show the modal for adding or editing an offer
     const handleShow = (offer = { title: '', description: '', discount: '', offersImgs: [] }, editMode = false) => {
-        setCurrentOffer(offer); // Set the current offer to the selected offer
-        setIsEditMode(editMode); // Set edit mode flag
-        setShow(true); // Show the modal
+        setCurrentOffer(offer);
+        setIsEditMode(editMode);
+        setShow(true);
     };
 
     // Reset the current offer state
@@ -57,20 +56,23 @@ const Offers = () => {
     // Close the modal
     const handleClose = () => {
         setShow(false);
-        resetCurrentOffer(); // Reset current offer when closing the modal
+        resetCurrentOffer();
     };
-    
 
-    // Create or update offer
-    const handleSave = () => {
-        console.log('Current offer:', currentOffer); // Log the current offer for debugging
-    
-        // Basic validation to check for empty fields
+    // Handle API errors
+    const handleError = (message, error) => {
+        console.error(message, error);
+        setErrorMessage(`${message}: ${error.response?.data?.message || error.message}`);
+        setTimeout(() => setErrorMessage(''), 5000); // Clear the error message after 5 seconds
+    };
+
+    // Save or update offer
+    const handleSave = async () => {
         if (!currentOffer.title || !currentOffer.description || !currentOffer.discount) {
             alert("Please fill in all required fields.");
-            return; // Exit early if validation fails
+            return;
         }
-    
+
         const formData = new FormData();
         formData.append('title', currentOffer.title);
         formData.append('description', currentOffer.description);
@@ -80,54 +82,40 @@ const Offers = () => {
             formData.append(`offersImgs[${index}]`, image);
         });
 
-        /* Update Offer */ 
-        if (isEditMode) {
-            axios.put(`http://localhost:4000/offers/update/${currentOffer.id}`, formData)
-                .then(response => {
-                    fetchOffers(); // Refresh offers after update
-                    handleClose();
-                })
-                .catch(error => console.error('Error updating offer:', error));
-        } else {
-            // Create new offer
-            axios.post('http://localhost:4000/offers/create', formData)
-                .then(response => {
-                    fetchOffers(); // Refresh offers after adding new
-                    handleClose();
-                })
-                .catch(error => console.error('Error adding offer:', error));
+        try {
+            if (isEditMode) {
+                await axios.put(`http://localhost:4000/offers/update/${currentOffer.id}`, formData);
+            } else {
+                await axios.post('http://localhost:4000/offers/create', formData);
+            }
+            fetchOffers(); // Refresh offers after adding or updating
+            handleClose();
+        } catch (error) {
+            handleError(isEditMode ? 'Error updating offer' : 'Error adding offer', error);
         }
     };
 
     // Delete offer
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:4000/offers/delete/${id}`)
-            .then(() => {
-                setOffers(offers.filter((offer) => offer.id !== id)); // Filter out the deleted offer
-            })
-            .catch(error => {
-                console.error('Error deleting offer:', error); // Log any error during deletion
-            });
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:4000/offers/delete/${id}`);
+            setOffers(offers.filter((offer) => offer.id !== id)); // Remove deleted offer
+        } catch (error) {
+            handleError('Error deleting offer', error);
+        }
     };
 
-    // Handle image upload (convert to FormData)
+    // Handle image upload
     const handleImageUpload = (e) => {
-        const files = Array.from(e.target.files); // Multiple file upload
+        const files = Array.from(e.target.files);
         setCurrentOffer({ ...currentOffer, offersImgs: files });
     };
 
     return (
         <div className="offers-container">
-<<<<<<< HEAD
-            <h1 className="text-center mb-4 mt-4" >Hotel Room Offers</h1>
-            <Button
-                variant="success"
-                className="add-custom-btn"
-                onClick={() => handleShow()}>
-=======
             <h1 className="text-center mb-4 mt-4">Room Offers</h1>
+            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
             <Button variant="success" className="add-custom-btn" onClick={() => handleShow()}>
->>>>>>> 7f0aa62a93e7b2e1f339f50de8cad1f0fefa578c
                 Add Offer
             </Button>
 
