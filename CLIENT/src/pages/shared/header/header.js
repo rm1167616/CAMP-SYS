@@ -23,9 +23,18 @@ const Header = () => {
   
   return (
     <header>
+      <div className='PartOne'>
+        <div className='MINU'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <a href="/" className="LogoBrand" data-animation ="slideInDown" style={{animationDelay: "0.2s"}}></a>
+        <a className='SignIN text-warning' as={Link} href="/login" data-animation ="slideInLeft" style={{animationDelay: "0.2s"}}>Login</a>
+      </div>
       <Container fluid>
         <Nav className="justify-content-space-between bg-dark py-3 Parent">
-          <a href="/" className="LogoBrand" data-animation ="slideInRight" style={{animationDelay: "0.2s"}}></a>
+          
           <div className='Items'>
           <Nav.Item>
             <Nav.Link href="#stay" className="text-warning" data-animation ="slideInDown" style={{animationDelay: "0.2s"}}>
@@ -77,7 +86,6 @@ const Header = () => {
               RoomsAvailable
             </Nav.Link>
           </div>
-          <Nav.Link className='SignIN text-warning' as={Link} to="/login" data-animation ="slideInLeft" style={{animationDelay: "0.2s"}}>Login</Nav.Link>
         </Nav>
       </Container>
     </header>

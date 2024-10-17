@@ -34,3 +34,29 @@
   .container-fluid {
     padding: 0px;
   }
+  .PartOne {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding-block: 25px;
+    padding-inline: 210px;
+  }
+  .MINU {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .MINU span {
+    width: 30px;
+    height: 3px;
+    background-color: gold;
+    transition: 0.3s;
+  }
+  .MINU:hover span:first-of-type  , .MINU:hover span:last-of-type{
+    width: 15px;
+
+  }
