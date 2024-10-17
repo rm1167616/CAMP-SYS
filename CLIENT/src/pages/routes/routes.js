@@ -49,19 +49,7 @@ export const routes = createBrowserRouter([
         },  
         {
             path: "/offers",
-            children: [ // no '/' in children to avoid errors 
-            {
-                path: '' ,
-                element: <Offers/>,
-            },
-            {
-                path: 'add' , // no '/' before add
-                element: <AddOffer/>,
-            },
-            {
-                path: ':id' ,
-                element: <UpdateOffer/> ,
-            },]
+            element: <Offers />,
         },   
         {
             path: "/contact",
