@@ -15,3 +15,123 @@
   overflow: hidden;
   
 }
+
+/* Testimonial Section */
+.testimonial-section {
+  padding-bottom: 130px;
+  padding-top: 90px;
+  background-color: rgb(48, 59, 43);
+  padding-right: 145px;
+  padding-left: 145px;
+}
+
+.testimonial-item {
+  opacity: 1;
+  width: 1230px;
+  transform: translate3d(0px, 0px, 0px);
+  display: block;
+  margin: 0 auto;
+}
+
+.testimonial-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: rgb(243, 243, 243);
+  text-align: center;
+  margin: 0 160px;
+}
+
+.testimonial-content h5 {
+  font-family: 'quiche-display', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.testimonial-content h2 {
+  font-family: 'quiche-display', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: -1.44px;
+}
+
+/* May Also Like Section */
+.may-also-like-section {
+  padding-top: 80px;
+  padding-bottom: 20px;
+  overflow: hidden;
+  max-width: 1136px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.may-also-like-section h2 {
+  font-family: 'quiche-display', sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  color: rgb(77, 95, 69);
+}
+
+.separator {
+  background: url('https://bromleycourthotel.co.uk/wp-content/themes/bromleycourthotel/images/separator.svg') no-repeat center;
+  width: 197px;
+  height: 24px;
+  margin: 20px auto;
+}
+
+/* Recommendations Section */
+.recommendations-section {
+  padding: 20px 0;
+}
+
+.recommendations-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.recommendation-card {
+  width: calc(50% - 16px);
+  max-width: 560px;
+  margin: 0 8px 32px;
+  padding: 16px;
+  background: rgb(238, 240, 237);
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-image {
+  background-size: cover;
+  min-height: 280px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+
+.card-image.dine {
+  background-image: url('https://bromleycourthotel.co.uk/wp-content/uploads/2023/08/Evoke-Pictures_Bromely-Hotel-Food__154-800x493.jpg');
+}
+
+.card-image.meetings {
+  background-image: url('https://bromleycourthotel.co.uk/wp-content/uploads/2023/08/Evoke-Pictures_Bromley-Court-Hotel-Conference-Rooms__091-800x493.jpg');
+}
+
+.recommendation-card h4 {
+  font-family: 'quiche-display', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgb(77, 95, 69);
+}
+
+.recommendation-card p {
+  color: rgb(61, 65, 70);
+  font-family: 'rival-sans';
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28.8px;
+}
+

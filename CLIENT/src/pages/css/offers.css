@@ -12,11 +12,13 @@
 #4a5a3e
 #b2925a
 */
-
+/* 
 html body{
     background-color: #4a5a3e;
+} */
+.body{
+    background-color: #4a5a3e;
 }
-
 /* Main container for the offers */
 .offers-container {
     display: flex;

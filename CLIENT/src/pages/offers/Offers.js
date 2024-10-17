@@ -1,7 +1,25 @@
 import React, { useState } from 'react';
 import { Card, Button, Row, Col, Modal, Form, Carousel } from 'react-bootstrap';
 import "../../pages/css/offers.css";
+import hotle4 from '../images/hotle4.webp';
+import hotle6 from '../images/hotle6.jpg';
+import hotle7 from '../images/hotle7.webp';
+import hotle8 from '../images/hotle8.webp';
+import hotle9 from '../images/hotle9.jpg';
+import hotle10 from '../images/hotle10.jpg';
 
+const getHomePageOffer = () => {
+    // If it returns a single object, wrap it in an array
+    return [
+      {
+        title: "Special Offer",
+        description: "Get 20% off on your next stay",
+        discount: "20% Off",
+        images: [hotle6],  // Example image
+      }
+    ];
+  };
+  
 const Offers = () => {
     // State to manage the list of hotel room offers
     const [offers, setOffers] = useState([
@@ -91,7 +109,7 @@ const Offers = () => {
 
     return (
         <div className="offers-container">
-            <h1 className="text-center mb-4 mt-4">Hotel Room Offers</h1>
+            <h1 className="text-center mb-4 mt-4" >Hotel Room Offers</h1>
             <Button
                 variant="success"
                 className="add-custom-btn"
