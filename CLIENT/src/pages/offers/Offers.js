@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Button, Row, Col, Modal, Form, Carousel } from 'react-bootstrap';
+import axios from 'axios';
 import "../../pages/css/offers.css";
 import hotle4 from '../images/hotle4.webp';
 import hotle6 from '../images/hotle6.jpg';
@@ -21,99 +22,112 @@ const getHomePageOffer = () => {
   };
   
 const Offers = () => {
-    // State to manage the list of hotel room offers
-    const [offers, setOffers] = useState([
-        {
-            id: 1,
-            title: "Deluxe Room Special",
-            description: "Enjoy a luxurious stay in our deluxe room with complimentary breakfast.",
-            discount: "15% off",
-            roomType: "Deluxe Room",
-            features: "King-sized bed, Mini-bar, Ocean view",
-            images: []
-        },
-        {
-            id: 2,
-            title: "Family Suite Offer",
-            description: "Book our family suite for a comfortable stay with up to 4 guests.",
-            discount: "20% off",
-            roomType: "Family Suite",
-            features: "2 Bedrooms, Kitchenette, Balcony",
-            images: []
-        },
-        {
-            id: 3,
-            title: "Weekend Getaway",
-            description: "Stay 2 nights and get 1 night free in any of our standard rooms.",
-            discount: "Buy 2 Get 1 Free",
-            roomType: "Standard Room",
-            features: "Free Wi-Fi, Coffee maker, Garden view",
-            images: []
-        }
-    ]);
+    // State to manage the list of offers
+    const [offers, setOffers] = useState([]); // List of offers fetched from the backend
+    const [show, setShow] = useState(false); // State to manage the visibility of the modal
+    const [currentOffer, setCurrentOffer] = useState({ title: '', description: '', discount: '', offersImgs: [] }); // State for the current offer
+    const [isEditMode, setIsEditMode] = useState(false); // Flag to determine if we are editing an existing offer
 
-    // Modal visibility state
-    const [show, setShow] = useState(false);
-    // State to track the current offer being edited or added
-    const [currentOffer, setCurrentOffer] = useState({ id: null, title: '', description: '', discount: '', roomType: '', features: '', images: [] });
-    // State to toggle between Add and Edit modes
-    const [isEditMode, setIsEditMode] = useState(false);
+    // Fetch offers from the backend when the component mounts
+
+        // Fetch offers from backend
+        useEffect(() => {
+            fetchOffers();
+        }, []);
+    
+        // Function to fetch offers
+        const fetchOffers = () => {
+            axios.get('http://localhost:4000/offers/offers')
+                .then(response => setOffers(response.data)) // Update the offers state with the fetched data
+                .catch(error => console.error('Error fetching offers:', error)); // Log any error during the fetch
+        };
+
+    // Show the modal for adding or editing an offer
+    const handleShow = (offer = { title: '', description: '', discount: '', offersImgs: [] }, editMode = false) => {
+        setCurrentOffer(offer); // Set the current offer to the selected offer
+        setIsEditMode(editMode); // Set edit mode flag
+        setShow(true); // Show the modal
+    };
+
+    // Reset the current offer state
+    const resetCurrentOffer = () => {
+        setCurrentOffer({ title: '', description: '', discount: '', offersImgs: [] });
+    };
 
     // Close the modal
-    const handleClose = () => setShow(false);
-
-    // Open the modal for adding or editing offers
-    const handleShow = (offer = { id: null, title: '', description: '', discount: '', roomType: '', features: '', images: [] }, editMode = false) => {
-        setCurrentOffer(offer);
-        setIsEditMode(editMode);
-        setShow(true);
-    };
-
-    // Save the new or updated offer
-    const handleSave = () => {
-        if (isEditMode) {
-            setOffers(offers.map((offer) => (offer.id === currentOffer.id ? currentOffer : offer)));
-        } else {
-            setOffers([...offers, { ...currentOffer, id: offers.length + 1 }]);
-        }
+    const handleClose = () => {
         setShow(false);
+        resetCurrentOffer(); // Reset current offer when closing the modal
     };
+    
 
-    // Delete an offer from the list
-    const handleDelete = (id) => {
-        setOffers(offers.filter((offer) => offer.id !== id));
-    };
+    // Create or update offer
+    const handleSave = () => {
+        console.log('Current offer:', currentOffer); // Log the current offer for debugging
+    
+        // Basic validation to check for empty fields
+        if (!currentOffer.title || !currentOffer.description || !currentOffer.discount) {
+            alert("Please fill in all required fields.");
+            return; // Exit early if validation fails
+        }
+    
+        const formData = new FormData();
+        formData.append('title', currentOffer.title);
+        formData.append('description', currentOffer.description);
+        formData.append('discount', currentOffer.discount);
 
-    // Handle file uploads and convert them to Base64 format
-    const handleImageUpload = (e) => {
-        const files = Array.from(e.target.files).slice(0, 8); // Limit to 8 images
-        const promises = files.map((file) => {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                    resolve(reader.result); // Convert file to Base64 URL
-                };
-                reader.onerror = reject;
-                reader.readAsDataURL(file); // Read file as Data URL
-            });
+        currentOffer.offersImgs.forEach((image, index) => {
+            formData.append(`offersImgs[${index}]`, image);
         });
 
-        Promise.all(promises)
-            .then((base64Images) => {
-                setCurrentOffer({ ...currentOffer, images: base64Images });
+        /* Update Offer */ 
+        if (isEditMode) {
+            axios.put(`http://localhost:4000/offers/update/${currentOffer.id}`, formData)
+                .then(response => {
+                    fetchOffers(); // Refresh offers after update
+                    handleClose();
+                })
+                .catch(error => console.error('Error updating offer:', error));
+        } else {
+            // Create new offer
+            axios.post('http://localhost:4000/offers/create', formData)
+                .then(response => {
+                    fetchOffers(); // Refresh offers after adding new
+                    handleClose();
+                })
+                .catch(error => console.error('Error adding offer:', error));
+        }
+    };
+
+    // Delete offer
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:4000/offers/delete/${id}`)
+            .then(() => {
+                setOffers(offers.filter((offer) => offer.id !== id)); // Filter out the deleted offer
             })
-            .catch((error) => {
-                console.error("Error reading files: ", error);
+            .catch(error => {
+                console.error('Error deleting offer:', error); // Log any error during deletion
             });
+    };
+
+    // Handle image upload (convert to FormData)
+    const handleImageUpload = (e) => {
+        const files = Array.from(e.target.files); // Multiple file upload
+        setCurrentOffer({ ...currentOffer, offersImgs: files });
     };
 
     return (
         <div className="offers-container">
+<<<<<<< HEAD
             <h1 className="text-center mb-4 mt-4" >Hotel Room Offers</h1>
             <Button
                 variant="success"
                 className="add-custom-btn"
                 onClick={() => handleShow()}>
+=======
+            <h1 className="text-center mb-4 mt-4">Room Offers</h1>
+            <Button variant="success" className="add-custom-btn" onClick={() => handleShow()}>
+>>>>>>> 7f0aa62a93e7b2e1f339f50de8cad1f0fefa578c
                 Add Offer
             </Button>
 
@@ -123,52 +137,26 @@ const Offers = () => {
                         offers.map((offer) => (
                             <Col md={12} key={offer.id} className="mb-4 animated-card">
                                 <Card className="offer-card">
-                                    {offer.images.length > 0 ? (
+                                    {offer.offersImgs && Array.isArray(offer.offersImgs) && offer.offersImgs.length > 0 ? (
                                         <Carousel>
-                                            {offer.images.map((image, index) => (
+                                            {offer.offersImgs.map((image, index) => (
                                                 <Carousel.Item key={index}>
-                                                    <img
-                                                        className="fixed-size-image"
-                                                        src={image}
-                                                        alt={`Offer Image ${index + 1}`}
-                                                    />
+                                                    <img className="fixed-size-image" src={image} alt={`Offer Image ${index + 1}`} />
                                                 </Carousel.Item>
                                             ))}
                                         </Carousel>
                                     ) : (
-                                        <img
-                                            className="fixed-size-image"
-                                            src="https://via.placeholder.com/400x300"
-                                            alt="Placeholder Image"
-                                        />
+                                        <img className="fixed-size-image" src="https://via.placeholder.com/400x300" alt="Placeholder Image" />
                                     )}
                                     <Card.Body className="card-content">
                                         <Card.Title>{offer.title}</Card.Title>
-                                        <Card.Text>
-                                            <strong>Description:</strong> {offer.description}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            <strong>Room Type:</strong> {offer.roomType}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            <strong>Features:</strong> {offer.features}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            <strong>Discount:</strong> {offer.discount}
-                                        </Card.Text>
+                                        <Card.Text><strong>Description:</strong> {offer.description}</Card.Text>
+                                        <Card.Text><strong>Discount:</strong> {offer.discount}</Card.Text>
                                         <div className="button-group">
-                                            <Button
-                                                variant="info"
-                                                className="me-2 custom-btn"
-                                                onClick={() => handleShow(offer, true)}
-                                            >
+                                            <Button variant="info" className="me-2 custom-btn" onClick={() => handleShow(offer, true)}>
                                                 Edit
                                             </Button>
-                                            <Button
-                                                variant="danger"
-                                                className="me-2 custom-btn"
-                                                onClick={() => handleDelete(offer.id)}
-                                            >
+                                            <Button variant="danger" className="me-2 custom-btn" onClick={() => handleDelete(offer.id)}>
                                                 Delete
                                             </Button>
                                         </div>
@@ -194,9 +182,7 @@ const Offers = () => {
                                 type="text"
                                 placeholder="Enter offer title"
                                 value={currentOffer.title}
-                                onChange={(e) =>
-                                    setCurrentOffer({ ...currentOffer, title: e.target.value })
-                                }
+                                onChange={(e) => setCurrentOffer({ ...currentOffer, title: e.target.value })}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
@@ -205,59 +191,26 @@ const Offers = () => {
                                 type="text"
                                 placeholder="Enter offer description"
                                 value={currentOffer.description}
-                                onChange={(e) =>
-                                    setCurrentOffer({ ...currentOffer, description: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Room Type</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter room type"
-                                value={currentOffer.roomType}
-                                onChange={(e) =>
-                                    setCurrentOffer({ ...currentOffer, roomType: e.target.value })
-                                }
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Features</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter room features"
-                                value={currentOffer.features}
-                                onChange={(e) =>
-                                    setCurrentOffer({ ...currentOffer, features: e.target.value })
-                                }
+                                onChange={(e) => setCurrentOffer({ ...currentOffer, description: e.target.value })}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Discount</Form.Label>
                             <Form.Control
-                                type="text"
-                                placeholder="Enter discount (e.g., 20%)"
+                                type="number"
+                                placeholder="Enter discount (e.g., 20)"
                                 value={currentOffer.discount}
-                                onChange={(e) =>
-                                    setCurrentOffer({ ...currentOffer, discount: e.target.value })
-                                }
+                                onChange={(e) => setCurrentOffer({ ...currentOffer, discount: e.target.value })}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Upload Images</Form.Label>
-                            <Form.Control
-                                type="file"
-                                multiple
-                                accept="image/*"
-                                onChange={handleImageUpload}
-                            />
+                            <Form.Control type="file" multiple accept="image/*" onChange={handleImageUpload} />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
                     <Button variant="primary" className="custom-btn" onClick={handleSave}>
                         {isEditMode ? 'Save Changes' : 'Add Offer'}
                     </Button>

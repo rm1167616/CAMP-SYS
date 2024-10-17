@@ -1,5 +1,6 @@
 import React , { useState } from 'react' ;
 import "../../pages/css/contact.css";
+import Room1 from '../../pages/Contact/images/Room1.jpg';
 
 
 const Contact = () => {
@@ -19,7 +20,7 @@ const Contact = () => {
         e.preventDefault();
 
         try {
-        const response = await fetch('https://your-backend-server.com/contact', {
+        const response = await fetch('http://localhost:4000/contact', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
@@ -43,7 +44,7 @@ const Contact = () => {
         <div className="contact-page-container">
         <div className="image-banner">
             <img
-            src="https://via.placeholder.com/1200x300" // Replace with your desired image URL
+            src={Room1}
             alt="Contact Banner"
             />
         </div>

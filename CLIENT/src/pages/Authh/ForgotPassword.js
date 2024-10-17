@@ -28,28 +28,30 @@ const ForgotPassword = () => {
     };
 
     return (
-        <div className="forgot-password-container">
-            <h2>Forgot Password</h2>
-            {error && <Alert variant="danger">{error}</Alert>}
-            {message && <Alert variant="success">{message}</Alert>}
-            <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control className="mb-4 w-100"
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </Form.Group>
-                <Button variant="primary w-25" type="submit">
-                    Submit
-                </Button>
-            </Form>
-            <div className="back-to-login">
-                <p>
-                    Remembered your password? <a href="/login">Go back to Login</a>
-                </p>
+        <div className="background-img"> 
+            <div className="forgot-password-container">
+                <h2>Forgot Password</h2>
+                {error && <Alert variant="danger">{error}</Alert>}
+                {message && <Alert variant="success">{message}</Alert>}
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Control className="mb-4 w-100"
+                            type="email"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </Form.Group>
+                    <Button variant="primary w-25" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+                <div className="back-to-login">
+                    <p>
+                        Remembered your password? <a href="/login">Go back to Login</a>
+                    </p>
+                </div>
             </div>
         </div>
     );
