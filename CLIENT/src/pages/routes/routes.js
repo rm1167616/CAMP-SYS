@@ -3,7 +3,7 @@ import Home from '../pages/home/home';
 import Login from '../pages/Authh/Login';
 import Register from '../pages/Authh/Register';
 import App from "../App";
-import Offers from "../pages/offers/Offers";
+import Offers from "../pages/offers/Offers" ;
 import Contact from "../pages/Contact/Contact";
 import Benfite from "../homeused/benfite"
 import Cards from "../homeused/cards"
