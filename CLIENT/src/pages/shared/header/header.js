@@ -58,7 +58,7 @@ const Header = () => {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/offers" className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
+            <Nav.Link href="#holidays"className="text-warning" data-animation="slideInDown" style={{animationDelay: "0.8s"}}>
               Holidays
             </Nav.Link>
           </Nav.Item>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Button } from 'react-bootstrap';
+import { Carousel, Button ,Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/main.css';
 import hotle4 from '../images/hotle4.webp';
@@ -13,28 +13,10 @@ import hotle10 from '../images/hotle10.jpg';
 import RoomCards from '../homeused/cards';
 import RoomFeatures from '../homeused/roomfeature';
 import AboutRoom from '../homeused/AboutRoom';
-import OfferCard from '../offers/Offers'; // Adjust path as necessary
+
 
 const HomePage = () => {
-  // Example offers data
-  const offers = [
-    {
-      id: 1,
-      title: "Summer Sale",
-      description: "Get 20% off on all items during the summer.",
-      discount: "20%",
-      images: ["https://via.placeholder.com/400x300"] // Replace with actual image URLs
-    },
-    // Add other offers as needed, but only show one
-  ];
-
-  const handleEdit = (offer) => {
-    // Implement your edit logic here
-  };
-
-  const handleDelete = (id) => {
-    // Implement your delete logic here
-  };
+ 
 
   return (
     <>
@@ -53,8 +35,6 @@ const HomePage = () => {
         </Carousel>
       </div>
 
-    
-
       {/* Room Cards Section */}
       <div className="room-cards-section">
         <RoomCards />
@@ -69,6 +49,65 @@ const HomePage = () => {
       <div className="room-cards-section">
         <AboutRoom />
       </div>
+
+
+
+      <div>
+            {/* Section 1 */}
+            <section className="testimonial-section">
+                <ul>
+                    <div>
+                        <div className="testimonial-item">
+                            <li>
+                                <div className="testimonial-content">
+                                    <h5>J Andrews</h5>
+                                    <h2>"Our newly refurbished room was fantastic with beautiful views."</h2>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </section>
+
+            {/* Section 2 */}
+            <section className="may-also-like-section">
+                <Container>
+                    <div className="text-center">
+                        <h2>You May Also Like</h2>
+                        <div className="separator"></div>
+                    </div>
+                </Container>
+            </section>
+
+            {/* Section 3 */}
+            <section className="recommendations-section">
+                <ul className="recommendations-list">
+                    <li className="recommendation-card">
+                        <div data-aos="fade-up" data-aos-delay="50">
+                            <a href="https://bromleycourthotel.co.uk/dine/">
+                                <div className="card-image dine"></div>
+                                <div>
+                                    <h4>Dine</h4>
+                                    <p>The hotel has a range of dining options...</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li className="recommendation-card">
+                        <div data-aos="fade-up" data-aos-delay="100">
+                            <a href="https://bromleycourthotel.co.uk/meetings/">
+                                <div className="card-image meetings"></div>
+                                <div>
+                                    <h4>Meetings</h4>
+                                    <p>From private dining to corporate events...</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
 
     </>
   );

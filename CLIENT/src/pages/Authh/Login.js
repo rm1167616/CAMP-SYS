@@ -98,7 +98,7 @@ const Login = () => {
           </div>
 
           <Button
-            className="btn btn-dark w-25"
+            className="btn btn-login w-25"
             variant="primary"
             type="submit"
             disabled={login.loading === true}>
