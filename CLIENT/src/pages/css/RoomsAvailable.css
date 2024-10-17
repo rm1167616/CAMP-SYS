@@ -34,10 +34,10 @@
 }
 
 .RoomsNumber {
-    width: 30px;
+    width: 50px;
     height: 30px;
     background-color: black;
-    border-radius: 20px;
+    border-radius: 5px;
     text-align: center;
     color: #fff;
     font-size: 14px;
@@ -49,6 +49,7 @@
 }
 .FilterDays {
     display: flex;
+    width: 50%;
 }
 .FilterDays:not(:last-of-type) {
     margin-bottom: 15px;
@@ -63,6 +64,7 @@
     width: 5%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    padding-inline: 40px;
 }
 input[type="text"], input[type="email"], textarea {
     margin-bottom: 0px !important;
@@ -122,5 +124,28 @@ span.flatpickr-weekday {
 }
 input:focus-visible {
     border-color: #FFC107 !important;
-    outline-offset: -100px !important;
+ 
+        outline: none !important;  
+        outline-offset: -100px !important; 
+
+}
+.FROMTO {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+.BTNFilter {
+    width: 100%;
+    background-color: #FFC107 !important;
+    text-align: center;
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    transition: 0.3s;
+}
+.BTNFilter:hover {
+    transform: none !important;
+    box-shadow: 0px 0px 10px #FFC107;
 }

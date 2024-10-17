@@ -34,7 +34,8 @@ const AvailableRooms = () => {
                         <option value="Catigoryc">C</option>
                     </Form.Select>
                 </Form.Group>
-                <div className='FilterDays'>
+            <div className='FROMTO'>
+            <div className='FilterDays'>
                     <span>From</span>
                     <Flatpickr
                         value={date}
@@ -53,6 +54,11 @@ const AvailableRooms = () => {
                     />
                 </div>
             </div>
+            <Button className='BTNFilter'>
+                Filter
+            </Button>
+            </div>
+
         </Container>
     );
 };
