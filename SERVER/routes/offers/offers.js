@@ -10,13 +10,13 @@ const path = require('path');
 //============= ENDPOINT CREATE OFFER ================//
 router.post(
     "/create",
-    upload.array("offersImgs"),
+    upload.array("images"),
     
     // Validation middleware
     [
-      body('title').notEmpty().withMessage('Title is required'),
-      body('description').notEmpty().withMessage('Description is required'),
-      body('discount').isFloat({ min: 0 }).withMessage('Discount must be a positive number'),
+      body('offerName').notEmpty().withMessage('Title is required'),
+      body('offerDescreption').notEmpty().withMessage('Description is required'),
+      body('offerDiscount').isFloat({ min: 0 }).withMessage('Discount must be a positive number'),
     ],
   
     async (req, res) => {
@@ -28,14 +28,14 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
       }
   
-      const { title, description, discount } = req.body;
+      const { offerName, offerDescreption, offerDiscount } = req.body;
   
       try {
         // CREATE OBJECT OF OFFERS TO ACCESS DATABASE
         const offerObj = {
-          offerName: title,
-          offerDescreption: description,
-          offerDiscount: discount,
+          offerName: offerName,
+          offerDescreption: offerDescreption,
+          offerDiscount: offerDiscount,
         };
   
         const insertedOffer = await query("INSERT INTO offers SET ?", offerObj);
@@ -79,7 +79,7 @@ router.post(
 //============= ENDPOINT UPDATE OFFER ================//
 router.put(
     "/update/:id",
-    upload.array("offersImgs"), // For updating images if provided
+    upload.array("images"), // For updating images if provided
     [
       body('title').optional().notEmpty().withMessage('Title cannot be empty'),
       body('description').optional().notEmpty().withMessage('Description cannot be empty'),
@@ -102,13 +102,13 @@ router.put(
           return res.status(404).json({ msg: "Offer not found" });
         }
   
-        const { title, description, discount } = req.body;
+        const { offerName, offerDescreption, offerDiscount } = req.body;
   
         // Build the updated offer object, keeping old values if not provided
         const updatedOffer = {
-          offerName: title || existingOffer[0].offerName,
-          offerDescreption: description || existingOffer[0].offerDescreption,
-          offerDiscount: discount !== undefined ? discount : existingOffer[0].offerDiscount,
+          offerName: offerName || existingOffer[0].offerName,
+          offerDescreption: offerDescreption || existingOffer[0].offerDescreption,
+          offerDiscount: offerDiscount !== undefined ? discount : existingOffer[0].offerDiscount,
         };
   
         // Update offer in the database
