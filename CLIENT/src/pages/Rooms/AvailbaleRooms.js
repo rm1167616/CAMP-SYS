@@ -9,7 +9,7 @@ import { Container } from "react-bootstrap";
 import 'flatpickr/dist/themes/material_blue.css'; // You can choose different themes
 
 const AvailableRooms = () => {
-    const rooms = Array.from({ length: 245 }, (_, i) => i); // Creates an array of room numbers from 0 to 243
+    const rooms = Array.from({ length: 101 }, (_, i) => i); // Creates an array of room numbers from 0 to 243
     const [date, setDate] = useState(new Date());
     const [dateTo, ToDate] = useState(new Date());
     return (
