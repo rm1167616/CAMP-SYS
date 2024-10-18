@@ -1,0 +1,38 @@
+.card {
+    border: none;
+  }
+  
+  .card-header {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    background-color: #d69f5a;
+  }
+  
+  .card-body a {
+    text-decoration: none;
+  }
+  
+  .card-body a:hover {
+    text-decoration: underline;
+  }
+  
+  .card .btn-success {
+    background-color: #4a5a3e;
+    border: none;
+  }
+  
+  .card .btn-success:hover {
+    background-color: #3d4e35;
+  }
+  
+  .text-danger {
+    color: #b2925a;
+  }
+  
+  .text-success {
+    color: #5a845c;
+  }
+  
