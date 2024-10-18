@@ -6,7 +6,21 @@
     width: 100%;
     gap: 20px;
 }
-
+.Error {
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    /* display: none; */
+    margin: 0;
+    transition: 0.4s;
+    background-color: #da5252d8;
+    border: 1px solid rgba(131, 22, 22, 0.678);
+    padding-block: 10px;
+    border-radius: 5px;
+    scale: 0;
+}
 .ContainersRooms {
     width: 100%;
     /* height: 63vh; */

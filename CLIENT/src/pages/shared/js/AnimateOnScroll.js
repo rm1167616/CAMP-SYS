@@ -12,7 +12,7 @@ const AnimateOnScroll = function ({ offset } = { offset: 10 }) {
       element.style.animationDelay = element.dataset.animationDelay || '0s'; // Read delay from attribute
       element.style.animationDuration = element.dataset.animationDuration || '1s'; // Read duration from attribute
       
-      console.log(`Animating: ${element.dataset.animation} with delay: ${element.dataset.animationDelay}`); // Log animation and delay
+      // console.log(`Animating: ${element.dataset.animation} with delay: ${element.dataset.animationDelay}`); // Log animation and delay
       
       element.classList.add(element.dataset.animation);
       element.style.opacity = 1; // Ensure the element becomes visible
