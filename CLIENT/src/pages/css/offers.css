@@ -16,11 +16,10 @@
 html body{
     background-color: #4a5a3e;
 } */
+
 .body{
     background-color: #4a5a3e;
 }
-
-
 
 
 /* Main container for the offers */
@@ -32,7 +31,6 @@ html body{
     width: 100%;
     padding: 0 10px; /* Padding on left and right for smaller screens */
     background-color: #4a5a3e; /* White background for offers container */
-
 }
 
 /* Styling for the main heading inside the offers section*/
@@ -69,12 +67,12 @@ html body{
     overflow: hidden; /* Hide overflow content */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     padding: 10px; /* Add some padding for better spacing */
-    margin-left: 140px; /* Space from the left side */
     width: 80%; /* Make card full width */
     max-width: 100%; /* Ensure card doesn't exceed parent width */
     box-sizing: border-box; /* Include padding and border in element's width */
     height: 420px;
     font-family: 'Times New Roman', serif; /* Font */
+    font-size: 20px; 
 
 }
 
@@ -91,19 +89,24 @@ html body{
 
 /* Carousel container with fixed height */
 .carousel {
-    height: 400px; /* Set a fixed height for the carousel */
-    position: relative; /* Ensures content below stays fixed */
+    height: 500px; /* Set a fixed height for the carousel */
+    position: relative; /* Keeps the content below fixed */
 }
 
 /* Disable Transition on Non-Images */
 .card-content {
-    transition: none !important; /* Disable content transitions */
+    flex: 1; /* Allow text content to take the remaining space */
+    max-width: 400px; /* Limit the width of the content */
+    transition: none !important; /* Disable transitions for the text content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
 }
 
 /* Image styling inside the offer card with fixed size */
 .fixed-size-image {
-    width: 500px; /* Fixed width */
-    height: 400px !important; /* Force height */
+    width: 650px !important; /* Fixed width */
+    height: 500px !important; /* Force height */
     object-fit: cover; /* Crop the image to fill the area without distorting */
     margin-right: 15px; /* Space between image and text */
     border-radius: 5px; /* Slightly rounded corners */
@@ -159,7 +162,8 @@ html body{
 .custom-btn {
     padding: 8px 12px; /* Keep small padding for buttons */
     font-size: 14px; /* Small font size */
-    min-width: auto; /* Prevent button from expanding full width */
+    min-width: auto; /* Prevent button from 
+    expanding full width */
 }
 
 
@@ -167,8 +171,8 @@ html body{
 .btn-info.custom-btn,
 .btn-danger.custom-btn,
 .btn-success.add-custom-btn {
-    background-color: #b2925a; /* Set to black as the default */
-    border: 2px solid #4a5a3e; /* Gold-yellow border */
+    background-color: #b2925a !important; /* Set to black as the default */
+    border: 2px solid #4a5a3e !important; /* Gold-yellow border */
     color: black; /* Text color */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s; /* Animation effects */
     font-family: 'Times New Roman', serif; /* Font */
@@ -182,6 +186,13 @@ html body{
     color: white; /* Text color on hover */
     transform: translateY(-3px); /* Lift button slightly on hover */
 }
+
+
+/* Form */
+.modal-content{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 
 /* Media Queries for Smaller Screens */
 @media only screen and (max-width: 768px) {
@@ -231,6 +242,11 @@ html body{
 
 /* For even smaller screens (up to 480px) */
 @media only screen and (max-width: 480px) {
+    .fixed-size-image {
+        width: 100%; /* Full width for the smallest screens */
+        height: 300px; /* Further reduce the height for very small screens */
+    }
+
     /* Offer card adjustments for very small screens */
     .offer-card {
         padding: 10px;
