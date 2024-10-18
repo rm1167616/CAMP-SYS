@@ -3,7 +3,8 @@
 		"_postman_id": "a4b9aae7-53a0-4329-8dc0-e000482191da",
 		"name": "Camp_System",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "19769284"
+		"_exporter_id": "19769284",
+		"_collection_link": "https://crimson-spaceship-556826.postman.co/workspace/My-Workspace~3c15783d-ca05-4e70-8ae0-e96fad566a82/collection/19769284-a4b9aae7-53a0-4329-8dc0-e000482191da?action=share&source=collection_link&creator=19769284"
 	},
 	"item": [
 		{
@@ -72,27 +73,24 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "title",
+									"key": "offerName",
 									"value": "offer name ",
 									"type": "text"
 								},
 								{
-									"key": "descreption",
+									"key": "offerDescreption",
 									"value": "offer descreption",
 									"type": "text"
 								},
 								{
-									"key": "discount",
+									"key": "offerDiscount",
 									"value": "40",
 									"type": "text"
 								},
 								{
-									"key": "offersImgs",
+									"key": "images",
 									"type": "file",
-									"src": [
-										"/C:/Users/Computer city/OneDrive/Pictures/WhatsApp Image 2024-07-03 at 02.19.29_a59a0757.jpg",
-										"/C:/Users/Computer city/OneDrive/Pictures/WhatsApp Image 2024-07-03 at 02.19.31_b8e1d8f2.jpg"
-									]
+									"src": "/C:/Users/Computer city/OneDrive/Pictures/WhatsApp Image 2024-07-03 at 02.19.29_a59a0757.jpg"
 								}
 							]
 						},
@@ -444,6 +442,43 @@
 							"path": [
 								"rooms",
 								"rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scadule",
+			"item": [
+				{
+					"name": "get available room",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\":\"rad\" ,\r\n    \"from\":\"\" ,\r\n    \"to\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/scadule/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"scadule",
+								""
 							]
 						}
 					},

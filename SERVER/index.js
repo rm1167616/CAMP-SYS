@@ -28,3 +28,5 @@ app.use("/Auth",require("./routes/Auth/Auth"));
 app.use("/offers",require("./routes/offers/offers"));
 //=========== ROOMS =========//
 app.use("/rooms",require("./routes/rooms/rooms"));
+//=========== SCADULE =========//
+app.use("/scadule",require("./routes/scadule/scadule"));

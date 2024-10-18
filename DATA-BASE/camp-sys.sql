@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2024 at 09:25 PM
+-- Generation Time: Oct 18, 2024 at 05:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,12 +38,8 @@ CREATE TABLE `offerimgs` (
 --
 
 INSERT INTO `offerimgs` (`id`, `imgpath`, `offerid`) VALUES
-(12, 'WhatsApp_Image_2024-07-03_at_02.19.29_a59a0757-1728674589997-73721ffc-ab31-4029-9875-d9b862478917.jpg', 2),
-(13, 'WhatsApp_Image_2024-07-03_at_02.19.31_b8e1d8f2-1728674590000-3850861f-1be5-45c4-8aa7-5a6814cc9f1d.jpg', 2),
-(14, 'WhatsApp_Image_2024-07-03_at_02.19.29_a59a0757-1728674590796-669f5161-237b-4121-9dc9-352527e7bde1.jpg', 3),
-(15, 'WhatsApp_Image_2024-07-03_at_02.19.31_b8e1d8f2-1728674590797-a6bcd666-b90e-465e-a676-de26694ed5f8.jpg', 3),
-(16, 'WhatsApp_Image_2024-07-03_at_02.19.29_a59a0757-1728674591592-eb46b117-d3d7-4b49-9503-ef46df52b102.jpg', 4),
-(17, 'WhatsApp_Image_2024-07-03_at_02.19.31_b8e1d8f2-1728674591593-4f1cc748-ad49-4d49-a1a7-c400c2ca5967.jpg', 4);
+(33, 'WhatsApp_Image_2024-07-03_at_02.19.29_a59a0757-1729164020078-c6ca459b-a870-4a80-b131-236a07e1a15c.jpg', 30),
+(35, 'Screenshot_2024-10-09_175720-1729164182904-ddba9ac4-29e8-44a2-89b5-017f844b05bb.png', 32);
 
 -- --------------------------------------------------------
 
@@ -63,9 +59,69 @@ CREATE TABLE `offers` (
 --
 
 INSERT INTO `offers` (`id`, `offerName`, `offerDescreption`, `offerDiscount`) VALUES
-(2, 'offer name ', 'offer descreption', 40),
-(3, 'offer name ', 'offer descreption', 40),
-(4, 'offer name ', 'offer descreption', 40);
+(29, 'radwan', 'radwan', 55),
+(30, 'offer name ', 'offer descreption', 40),
+(32, 'shaden', 'shadenshadenshadenshaden', 33);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room`
+--
+
+CREATE TABLE `room` (
+  `id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `descreption` text NOT NULL,
+  `startRoom` int(11) NOT NULL,
+  `endRoom` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`id`, `type`, `descreption`, `startRoom`, `endRoom`) VALUES
+(2, 'rad', 'rad', 2, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roomimgs`
+--
+
+CREATE TABLE `roomimgs` (
+  `id` int(11) NOT NULL,
+  `imgpath` varchar(255) NOT NULL,
+  `roomID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `roomimgs`
+--
+
+INSERT INTO `roomimgs` (`id`, `imgpath`, `roomID`) VALUES
+(4, 'Screenshot_(304)-1728725725047-087c7d05-1159-4264-8602-ace3d40d9389.png', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roomscadule`
+--
+
+CREATE TABLE `roomscadule` (
+  `id` int(11) NOT NULL,
+  `roomid` int(11) NOT NULL,
+  `from` date NOT NULL,
+  `to` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `roomscadule`
+--
+
+INSERT INTO `roomscadule` (`id`, `roomid`, `from`, `to`) VALUES
+(1, 2, '2024-10-09', '2024-10-17');
 
 -- --------------------------------------------------------
 
@@ -113,6 +169,26 @@ ALTER TABLE `offers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `room`
+--
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `roomimgs`
+--
+ALTER TABLE `roomimgs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `roomID` (`roomID`);
+
+--
+-- Indexes for table `roomscadule`
+--
+ALTER TABLE `roomscadule`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `roomid` (`roomid`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -126,12 +202,30 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `offerimgs`
 --
 ALTER TABLE `offerimgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `offers`
 --
 ALTER TABLE `offers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `room`
+--
+ALTER TABLE `room`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `roomimgs`
+--
+ALTER TABLE `roomimgs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `roomscadule`
+--
+ALTER TABLE `roomscadule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -149,6 +243,18 @@ ALTER TABLE `user`
 --
 ALTER TABLE `offerimgs`
   ADD CONSTRAINT `imgOfOffers` FOREIGN KEY (`offerid`) REFERENCES `offers` (`id`);
+
+--
+-- Constraints for table `roomimgs`
+--
+ALTER TABLE `roomimgs`
+  ADD CONSTRAINT `roomimgs_ibfk_1` FOREIGN KEY (`roomID`) REFERENCES `room` (`id`);
+
+--
+-- Constraints for table `roomscadule`
+--
+ALTER TABLE `roomscadule`
+  ADD CONSTRAINT `roomscadule_ibfk_1` FOREIGN KEY (`roomid`) REFERENCES `room` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
