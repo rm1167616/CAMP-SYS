@@ -17,6 +17,7 @@ router.get("/",async(req,res)=>{
         const roomsnumbers = await query("SELECT id,StartRoom, EndRoom FROM room WHERE type LIKE ?", [`%${category}%`]);
         const roomid = roomsnumbers[0].id;
         const scaduleData = await query("SELECT * FROM roomscadule WHERE roomid = ?", [roomid]);
+        
 
         res.status(200).json(scaduleData);
 
