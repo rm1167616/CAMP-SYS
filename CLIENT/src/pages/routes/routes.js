@@ -9,6 +9,7 @@ import Benfite from "../homeused/benfite"
 import Cards from "../homeused/cards"
 import RoomFeatures from "../homeused/roomfeature"
 import AboutRooms from "../homeused/AboutRooms"
+import Rooms from "../Rooms/room"
 
 
 //
@@ -53,6 +54,10 @@ export const routes = createBrowserRouter([
             path: "/contact",
             element: <Contact/>,
         },  
+        {
+            path: "/Rooms",
+            element: <Rooms/>,
+        }, 
 
 ]
 },
