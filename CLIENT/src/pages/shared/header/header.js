@@ -33,7 +33,7 @@ const Header = () => {
         <a className='SignIN text-warning' as={Link} href="/login" data-animation ="slideInLeft" style={{animationDelay: "0.2s"}}>Login</a>
       </div>
       <Container fluid>
-        <Nav className="justify-content-space-between bg-dark py-3 Parent">
+        <Nav className="justify-content-space-between bg py-3 Parent" style={{backgroundColor:'#4a5a3e'}}>
           
           <div className='Items'>
           <Nav.Item>

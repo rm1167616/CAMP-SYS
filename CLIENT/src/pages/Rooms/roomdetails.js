@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Card, Button, Row, Col, Form, Carousel, Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import hotle from "../images/hotle4.webp";
 
-const RoomCard = ({ room, onDelete }) => {
+const RoomCard = ({ room, onDelete, onUpdate }) => {
+  const [showMore, setShowMore] = useState(false);
+
   return (
-    <Card className="my-4" style={{ backgroundColor: '#4a5a3e' }}>
+    <Card className="my-4" style={{ backgroundColor: '#4a5a3e', color: 'white' }}>
       <Card.Header className="text-white bg-warning">
         {room.offer}
       </Card.Header>
@@ -15,24 +16,71 @@ const RoomCard = ({ room, onDelete }) => {
           <Carousel>
             {room.images.map((img, idx) => (
               <Carousel.Item key={idx}>
-                <img src={img} alt="Room Image" style={{ height: '100%', objectFit: 'cover', width: '100%' ,marginTop:"20%" , marginLeft:"3%" }} />
+                <img
+                  src={img}
+                  alt="Room Image"
+                  style={{
+                    height: '100%',
+                    objectFit: 'cover',
+                    width: '100%',
+                    marginTop: '20%',
+                    marginLeft: '3%',
+                  }}
+                />
               </Carousel.Item>
             ))}
           </Carousel>
         </Col>
 
         {/* Room Details */}
-        <Col md={5} className="p-4" style={{ backgroundColor: '#4a5a3e' }}>
+        <Col md={5} className="p-4">
           <Card.Body>
             <Card.Title className="font-weight-bold">{room.title}</Card.Title>
             <Row className="mb-2">
-              <Col><i className="fas fa-user"></i> {room.people} People</Col>
-              <Col><i className="fas fa-bed"></i> {room.bed}</Col>
+              <Col>
+                <i className="fas fa-user"></i> {room.people} People
+              </Col>
+              <Col>
+                <i className="fas fa-bed"></i> {room.bed}
+              </Col>
             </Row>
             <Card.Text>{room.description}</Card.Text>
-            <a href="#" className="text-success font-weight-bold">
-              {room.detailsLinkText}
+
+            {/* View More Details */}
+            <a
+              href="#"
+              className="text-success font-weight-bold"
+              onClick={() => setShowMore(!showMore)}
+            >
+              {showMore ? 'View Less Details' : 'View More Details'}
             </a>
+
+            {/* Additional details when expanded */}
+            {showMore && (
+              <div className="mt-3">
+                <h5>Room Features</h5>
+                <ul>
+                  <li>
+                    <i className="fas fa-wifi"></i> Free Wi-Fi
+                  </li>
+                  <li>
+                    <i className="fas fa-tv"></i> Satellite TV
+                  </li>
+                  <li>
+                    <i className="fas fa-coffee"></i> Coffee/Tea Maker
+                  </li>
+                </ul>
+                <h5>Excluded Services</h5>
+                <ul>
+                  <li>
+                    <i className="fas fa-concierge-bell"></i> Room Service
+                  </li>
+                  <li>
+                    <i className="fas fa-parking"></i> Paid Parking
+                  </li>
+                </ul>
+              </div>
+            )}
           </Card.Body>
         </Col>
 
@@ -40,28 +88,39 @@ const RoomCard = ({ room, onDelete }) => {
         <Col md={3} className="p-4" style={{ backgroundColor: '#b2925a' }}>
           <Form.Group>
             <Form.Check
-              type="radio"
+              type="checkbox"
               label="DIRECT RATE: Best Flexible Rate Room Only"
-              name="rateOptions"
               className="mb-2"
+              checked={room.rateOptions.includes('roomOnly')}
+              onChange={() => room.toggleRateOption('roomOnly')}
+              style={{ color: 'white' }}
             />
             <Form.Check
-              type="radio"
+              type="checkbox"
               label="DIRECT RATE: Best Flexible Rate with Breakfast"
-              name="rateOptions"
               className="mb-4"
+              checked={room.rateOptions.includes('withBreakfast')}
+              onChange={() => room.toggleRateOption('withBreakfast')}
+              style={{ color: 'white' }}
             />
-            <div className="text-right" >
+            <div className="text-right">
               <del className="text-muted">£{room.originalPrice}</del>
               <h4 className="font-weight-bold text-danger">£{room.discountPrice}</h4>
-              <Button variant="success" className="w-100">Book</Button>
+              <Button variant="success" className="w-100">
+                Book
+              </Button>
             </div>
           </Form.Group>
         </Col>
+      </Row>
 
-        {/* Delete Button */}
-        <Col md={12} className="p-2" style={{marginLeft:"3%"}}>
-          <Button variant="warning" onClick={() => onDelete(room.id)}>Delete</Button>
+      {/* Update and Delete Buttons */}
+      <Row>
+        <Col md={12} className="p-2">
+          <Button className="mb-4" onClick={() => onUpdate(room)}>Update</Button>
+        </Col>
+        <Col md={12} className="p-2">
+          <Button className="mb-4" onClick={() => onDelete(room.id)}>Delete</Button>
         </Col>
       </Row>
     </Card>
@@ -71,43 +130,92 @@ const RoomCard = ({ room, onDelete }) => {
 const RoomCardManager = () => {
   const [rooms, setRooms] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [editingRoom, setEditingRoom] = useState(null);
   const [newRoom, setNewRoom] = useState({
     title: '',
     people: '',
     bed: '',
     description: '',
-    detailsLinkText: '',
     images: [],
     offer: 'Book Direct and get £5 off',
     originalPrice: '',
     discountPrice: '',
+    rateOptions: [],
   });
 
+  const toggleRateOption = (option) => {
+    setNewRoom((prevRoom) => {
+      if (prevRoom.rateOptions.includes(option)) {
+        return { ...prevRoom, rateOptions: prevRoom.rateOptions.filter((opt) => opt !== option) };
+      } else {
+        return { ...prevRoom, rateOptions: [...prevRoom.rateOptions, option] };
+      }
+    });
+  };
+
   const handleAddRoom = () => {
-    setRooms([...rooms, { ...newRoom, id: Date.now() }]);
+    if (editingRoom) {
+      setRooms(
+        rooms.map((room) =>
+          room.id === editingRoom.id ? { ...newRoom, id: editingRoom.id } : room
+        )
+      );
+    } else {
+      setRooms([...rooms, { ...newRoom, id: Date.now(), toggleRateOption }]);
+    }
     setShowModal(false);
+    setEditingRoom(null);
+    resetNewRoom();
+  };
+
+  const resetNewRoom = () => {
+    setNewRoom({
+      title: '',
+      people: '',
+      bed: '',
+      description: '',
+      images: [],
+      offer: 'Book Direct and get £5 off',
+      originalPrice: '',
+      discountPrice: '',
+      rateOptions: [],
+    });
+  };
+
+  const handleUpdateRoom = (room) => {
+    setNewRoom(room);
+    setEditingRoom(room);
+    setShowModal(true);
   };
 
   const handleDeleteRoom = (id) => {
-    setRooms(rooms.filter(room => room.id !== id));
+    setRooms(rooms.filter((room) => room.id !== id));
   };
 
   return (
     <div className="container">
       {/* Add Room Button */}
-      <Button variant="primary" className="mb-4" onClick={() => setShowModal(true)}>
+      <Button
+        variant="primary"
+        className="mb-4"
+        onClick={() => {
+          resetNewRoom();
+          setShowModal(true);
+        }}
+        style={{ marginTop: '2%' }}
+      >
         Add Room
       </Button>
 
       {/* Room Cards */}
-      {rooms.map(room => (
-        <RoomCard key={room.id} room={room} onDelete={handleDeleteRoom} />
+      {rooms.map((room) => (
+        <RoomCard key={room.id} room={room} onDelete={handleDeleteRoom} onUpdate={handleUpdateRoom} />
       ))}
 
-      {/* Modal for Adding Room */}
+      {/* Modal for Adding/Updating Room */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Add New Room</Modal.Title>
+          <Modal.Title>{editingRoom ? 'Update Room' : 'Add New Room'}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -145,14 +253,6 @@ const RoomCardManager = () => {
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Details Link Text</Form.Label>
-              <Form.Control
-                type="text"
-                value={newRoom.detailsLinkText}
-                onChange={(e) => setNewRoom({ ...newRoom, detailsLinkText: e.target.value })}
-              />
-            </Form.Group>
-            <Form.Group>
               <Form.Label>Original Price</Form.Label>
               <Form.Control
                 type="number"
@@ -173,7 +273,14 @@ const RoomCardManager = () => {
               <Form.Control
                 type="file"
                 multiple
-                onChange={(e) => setNewRoom({ ...newRoom, images: Array.from(e.target.files).map(file => URL.createObjectURL(file)) })}
+                onChange={(e) =>
+                  setNewRoom({
+                    ...newRoom,
+                    images: Array.from(e.target.files).map((file) =>
+                      URL.createObjectURL(file)
+                    ),
+                  })
+                }
               />
             </Form.Group>
           </Form>
@@ -183,7 +290,7 @@ const RoomCardManager = () => {
             Close
           </Button>
           <Button variant="primary" onClick={handleAddRoom}>
-            Add Room
+            {editingRoom ? 'Update Room' : 'Add Room'}
           </Button>
         </Modal.Footer>
       </Modal>
