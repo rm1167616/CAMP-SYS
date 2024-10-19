@@ -116,10 +116,8 @@ const RoomCard = ({ room, onDelete, onUpdate }) => {
 
       {/* Update and Delete Buttons */}
       <Row>
-        <Col md={12} className="p-2">
+        <Col md={12} className="p-2" style={{marginLeft:'10px'}}>
           <Button className="mb-4" onClick={() => onUpdate(room)}>Update</Button>
-        </Col>
-        <Col md={12} className="p-2">
           <Button className="mb-4" onClick={() => onDelete(room.id)}>Delete</Button>
         </Col>
       </Row>
