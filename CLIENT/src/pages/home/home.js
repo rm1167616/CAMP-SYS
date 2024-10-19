@@ -8,7 +8,12 @@ import hotle7 from '../images/hotle7.webp';
 import hotle8 from '../images/hotle8.webp';
 import hotle9 from '../images/hotle9.jpg';
 import hotle10 from '../images/hotle10.jpg';
-
+import hotle0 from '../images/1.jpg';
+import hotle00 from '../images/2.jpg';
+import hotle000 from '../images/3.jpg';
+import hotle0000 from '../images/4.jpg';
+import hotle00000 from '../images/5.jpg';
+import hotle000000 from '../images/dahab-background.jpg';
 // Import the RoomCards component
 import RoomCards from '../homeused/cards';
 import RoomFeatures from '../homeused/roomfeature';
@@ -23,7 +28,7 @@ const HomePage = () => {
       {/* Carousel Section */}
       <div className="carousel-section" style={{ marginBottom: '30px' }}>
         <Carousel controls={false} indicators={false} interval={2000}>
-          {[hotle4, hotle6, hotle7, hotle8, hotle9, hotle10].map((image, idx) => (
+          {[hotle0, hotle00, hotle000, hotle0000, hotle00000, hotle000000].map((image, idx) => (
             <Carousel.Item key={idx}>
               <img
                 className="d-block w-100 carousel-image"

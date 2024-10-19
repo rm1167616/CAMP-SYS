@@ -1,0 +1,62 @@
+/* Header Styles */
+header {
+  position: relative;
+  z-index: 1000;
+  /* Gradient background for the header */
+  background: linear-gradient(to right, #4a5a3e, #6b8e23);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Styling */
+header img {
+  transition: transform 0.3s ease; /* Logo hover effect */
+}
+
+header img:hover {
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+/* Navigation Styles */
+.nav-link {
+  position: relative;
+  color: white !important;
+  font-size: 1.1rem;
+  text-transform: uppercase; /* Make the text uppercase */
+  padding: 10px 15px; /* More padding for clickable area */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-link:hover {
+  color: #ffd700 !important; /* Gold color on hover */
+}
+
+/* Animation for links */
+[data-animation="fadeIn"] {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.5s forwards; /* Fade-in animation */
+}
+
+/* Fade-in Keyframes */
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Right-hand Links Styles */
+.right-links .nav-link {
+  transition: transform 0.3s ease;
+}
+
+.right-links .nav-link:hover {
+  transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-link {
+      font-size: 0.9rem; /* Smaller font size on mobile */
+  }
+}

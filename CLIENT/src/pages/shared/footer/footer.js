@@ -5,6 +5,7 @@ import '../css/footer.css'; // Custom CSS for styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faLinkedin, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'; // Import specific icons
 import gsap from 'gsap';
+import hotle8 from '../../images/webugs.png';
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -13,88 +14,65 @@ const Footer = () => {
   const ComeFromLeft = useRef(null);
   const ComeFromRightFooter = useRef(null);
   const ComeFromLeftFooter = useRef(null);
+
   useEffect(() => {
-    const handleScroll = () => {
+    const animateFooter = () => {
       const footerRect = footerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Check if footer is in view
       if (footerRect.top <= windowHeight) {
+        // Logo Animation
         gsap.fromTo(
           ComeFromRightLogo.current,
-          { x: -100, opacity: 0 }, // Start state: moved right and invisible
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out",
-          }
+          { x: -100, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
         );
+        // Footer text animations
         gsap.fromTo(
           ComeFromRightFooter.current,
-          { x: -100, opacity: 0 }, // Start state: moved right and invisible
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out",
-          }
+          { x: -100, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
         );
         gsap.fromTo(
           ComeFromLeft.current,
-          { x: 100, opacity: 0 }, // Start state: moved right and invisible
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out",
-          }
+          { x: 100, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
         );
         gsap.fromTo(
           ComeFromLeftFooter.current,
-          { x: 100, opacity: 0 }, // Start state: moved right and invisible
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out",
-          }
+          { x: 100, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
         );
+        // List Items Animation
         gsap.fromTo(
           itemsRef.current,
-          { opacity: 0, y: 20 }, // Start state
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            stagger: 0.1, // Delay between each item animation
-            ease: "power2.out",
-          }
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" }
         );
-        // Remove event listener after animation
-        window.removeEventListener('scroll', handleScroll);
+        // Remove event listener after animation triggers
+        window.removeEventListener('scroll', animateFooter);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', animateFooter);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', animateFooter);
     };
   }, []);
 
   return (
     <footer className="footer bg-dark text-light">
-      <Container className='ConatainreFooter py-3'>
+      <Container className="ConatainreFooter py-3">
         <Row className="justify-content-between">
-          <Col xs={12} md={4} className="text-center text-md-left ">
-            <div className='ConLogo' ref={ComeFromRightLogo} style={{ opacity: 0 }}>
+          <Col xs={12} md={4} className="text-center text-md-left">
+            <div className="ConLogo" ref={ComeFromRightLogo} style={{ opacity: 0 }}>
               <img
-                src="https://i.pinimg.com/736x/48/b0/87/48b087b50ead6993a8113c440d640db4.jpg"
-                alt="Camp Sys Logo"
+                src={hotle8} // Correct reference to the imported image
+                alt="web bugs Logo"
                 className="footer-logo"
               />
-              <p>WebBugs</p>
+              {/* <p>WebBugs</p> */}
             </div>
           </Col>
 
@@ -104,52 +82,46 @@ const Footer = () => {
                 <div
                   key={index}
                   ref={el => (itemsRef.current[index] = el)} // Store references to items
-                  style={ {opacity: 0} } // Initial opacity
+                  style={{ opacity: 0 }} // Initial opacity
                 >
-                  <a href='#'>{item}</a>
+                  <a href="#">{item}</a>
                 </div>
               ))}
             </div>
           </Col>
 
           <Col xs={12} md={4} className="text-center text-md-right ParentContactUs">
-            <div className='ContactUs' ref={ComeFromLeft} style={{ opacity: 0 }}>
-              <p>02084618600</p>
-              <p>enquiries@campsys.com</p>
+            <div className="ContactUs" ref={ComeFromLeft} style={{ opacity: 0 }}>
+              <p>
+                <a href="tel:+202084618600" className="text-light">02084618600</a>
+              </p>
+              <p>
+                <a href="mailto:enquiries@campsys.com" className="text-light">enquiries@campsys.com</a>
+              </p>
             </div>
           </Col>
         </Row>
       </Container>
 
-      <div className='EndFooter'>
+      <div className="EndFooter">
         <div className="ConEndFooter">
-          <p ref={ComeFromRightFooter} style={{ opacity: 0 }}>&copy; 2024 Camp Sys. Created With 🤍 By <span className='Webbugs'>WebBugs</span></p>
+          <p ref={ComeFromRightFooter} style={{ opacity: 0 }}>
+            &copy; 2024 Camp Sys. Created With 🤍 By <span className="Webbugs">WebBugs</span>
+          </p>
           <ul className="list-inline" ref={ComeFromLeftFooter} style={{ opacity: 0 }}>
-            <li className="list-inline-item">
-              <a href="#facebook" className="social-icon">
-                <FontAwesomeIcon icon={faFacebook} />
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#twitter" className="social-icon">
-                <FontAwesomeIcon icon={faTwitter} />
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#linkedin" className="social-icon">
-                <FontAwesomeIcon icon={faLinkedin} />
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#instagram" className="social-icon">
-                <FontAwesomeIcon icon={faInstagram} />
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a href="#tripadvisor" className="social-icon">
-                <FontAwesomeIcon icon={faGithub} />
-              </a>
-            </li>
+            {[
+              { icon: faFacebook, href: "#facebook" },
+              { icon: faTwitter, href: "#twitter" },
+              { icon: faLinkedin, href: "#linkedin" },
+              { icon: faInstagram, href: "#instagram" },
+              { icon: faGithub, href: "#github" }
+            ].map((social, index) => (
+              <li className="list-inline-item" key={index}>
+                <a href={social.href} className="social-icon">
+                  <FontAwesomeIcon icon={social.icon} />
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
