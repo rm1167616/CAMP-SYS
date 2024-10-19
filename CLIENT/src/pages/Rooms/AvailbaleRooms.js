@@ -76,7 +76,7 @@ const AvailableRooms = () => {
                     <Form.Select className="SelectCategory">
                         <option value="">Select Category</option>
                         <option value="rad">rad</option>
-                        <option value="CategoryB">B</option>
+                        <option value="type">type</option>
                         <option value="CategoryC">C</option>
                     </Form.Select>
                 </Form.Group>
