@@ -17,7 +17,8 @@ router.post(
     [
         body('type').notEmpty().withMessage('Type is required'),
         body('descreption').notEmpty().withMessage('Description is required'),
-        body('numOfRooms').isInt({ min: 1 }).withMessage('Number of Rooms must be at least 1'),
+        body('startRoom').isInt({ min: 1 }).withMessage('Number of Rooms must be at least 1'),
+        body('endRoom').isInt({ min: 1 }).withMessage('Number of Rooms must be at least 1'),
     ],
 
     async (req, res) => {
@@ -30,13 +31,14 @@ router.post(
                 return res.status(400).json({ errors: errors.array() });
             }
 
-            const { type, descreption, numOfRooms } = req.body;
+            const { type, descreption, startRoom,endRoom } = req.body;
 
             // Create object of room
             const roomObj = {
                 type,
                 descreption,
-                numOfRooms,
+                startRoom,
+                endRoom,
             };
             const insertedRoom = await query("INSERT INTO room SET ?", roomObj);
             const insertedRoomId = insertedRoom.insertId;
@@ -81,7 +83,8 @@ router.put(
     [
         body('type').optional().notEmpty().withMessage('Type cannot be empty'),
         body('descreption').optional().notEmpty().withMessage('Description cannot be empty'),
-        body('numOfRooms').optional().isInt({ min: 1 }).withMessage('Number of Rooms must be at least 1'),
+        body('startRoom').optional().isInt({ min: 1 }).withMessage('Number of Rooms must be at least 1'),
+        body('endRoom').optional().isInt({ min: 1 }).withMessage('Number of Rooms must be at least 1'),
     ],
 
     async (req, res) => {
@@ -95,13 +98,14 @@ router.put(
                 return res.status(404).json({ msg: "Room not found" });
             }
 
-            const { type, descreption, numOfRooms } = req.body;
+            const { type, descreption, startRoom,endRoom } = req.body;
 
             // Update room object, keeping old values if not provided
             const updatedRoom = {
                 type: type || existingRoom[0].type,
                 descreption: descreption || existingRoom[0].descreption,
-                numOfRooms: numOfRooms !== undefined ? numOfRooms : existingRoom[0].numOfRooms,
+                startRoom: startRoom !== undefined ? startRoom : existingRoom[0].startRoom,
+                endRoom:  endRoom !== undefined ? endRoom : existingRoom[0].endRoom,
             };
 
             // Update room in the database
@@ -197,7 +201,7 @@ router.get("/rooms", async (req, res) => {
 
         // Query to get all rooms with their associated images
         const rooms = await query(`
-            SELECT r.id, r.type, r.descreption, r.numOfRooms, i.imgpath 
+            SELECT r.id, r.type, r.descreption, r.startRoom,r.endRoom , i.imgpath 
             FROM room r
             LEFT JOIN roomimgs i ON r.id = i.roomID
         `);
@@ -210,7 +214,7 @@ router.get("/rooms", async (req, res) => {
                     id: room.id,
                     type: room.type,
                     descreption: room.descreption,
-                    numOfRooms: room.numOfRooms,
+                    startRoom: room.startRoom,
                     images: []
                 };
             }
