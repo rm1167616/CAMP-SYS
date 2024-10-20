@@ -30,6 +30,13 @@
   animation: fadeIn 0.5s ease; /* Fade-in effect for the contact container */
 }
 
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Added gap between form elements for uniform spacing */
+}
+
+
 .contact-form {
   flex: 1;
   margin-right: 20px;
@@ -58,6 +65,7 @@
 .input-group {
   display: flex;
   justify-content: space-between;
+  gap: 15px; /* Gap between grouped input fields */
 }
 
 .input-group input {
@@ -78,8 +86,8 @@ input[type="email"],
 textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
   border: 2px solid #ddd;
+  border-radius: 5px !important; 
   transition: border-color 0.3s ease; /* Transition for input focus */
 }
 
@@ -99,6 +107,7 @@ button {
   background-color: #b2925a;
   color: white;
   border: none;
+  border-radius: 5px !important; 
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth button transition */
 }
