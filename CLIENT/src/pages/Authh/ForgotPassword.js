@@ -43,7 +43,7 @@ const ForgotPassword = () => {
                             required
                         />
                     </Form.Group>
-                    <Button variant="primary w-25" type="submit">
+                    <Button className = "submit-forget-btn" variant="primary w-25" type="submit">
                         Submit
                     </Button>
                 </Form>

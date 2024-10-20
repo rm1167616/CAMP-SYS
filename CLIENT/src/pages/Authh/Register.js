@@ -184,7 +184,7 @@ const Register = () => {
             </Form.Group>
 
             <Button
-                className="btn btn-login w-25"
+                className="btn btn-register w-25"
                 variant="primary"
                 type="submit"
                 disabled={register.loading === true}>

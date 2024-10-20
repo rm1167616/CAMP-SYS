@@ -1,4 +1,10 @@
 
+/* New: Using CSS variables for easier color management */
+:root {
+    --dark-green: #4a5a3e;
+    --gold: #b2925a;
+}
+
 /* Background and overall container styling */
 .login-container {
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
@@ -28,7 +34,7 @@ h1 {
   /* Form input styling */
 .form-control {
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    border: 1px solid #4a5a3e !important; /* Gold-like yellow border */
+    border: 1px solid var(--dark-green) !important; /* Gold-like yellow border */
     border-radius: 6px;
     padding: 15px; 
     font-size: 18px; 
@@ -37,14 +43,14 @@ h1 {
 }
 
 .form-control:focus {
-    border-color: #4a5a3e;
-    box-shadow: 0px 0px 3px #60774f; 
+    border-color: var(--dark-green) !important;
+    box-shadow: 0px 0px 3px #60774f !important; 
 }
 
   /* Button Styling */
 .btn-login  {
-    background-color: #b2925a !important; /* Set to black as the default */
-    border: 2px solid #4a5a3e !important; /* Gold-yellow border */
+    background-color: var(--gold) !important; /* Set to black as the default */
+    border: 2px solid var(--dark-green) !important; /* Gold-yellow border */
     color: black !important; /* Text color */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s; /* Animation effects */
     font-family: 'Times New Roman', serif; /* Font */

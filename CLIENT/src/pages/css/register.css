@@ -16,18 +16,68 @@
 
 /* Gender in Register */
 
-.select-gender{
-    background-color: #fff; /* White input boxes */
-    border: 1px solid #4a5a3e !important; /* Gold-like yellow border */
-    border-radius: 6px;
-    padding: 15px;
+.form-select{
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border: 1px solid #4a5a3e !important; /* Dark green border, using the hex color directly */   
+    padding: 13px;
     font-size: 16px;
     color: #000;
     font-family: 'Times New Roman', serif;
     appearance: none; /* Optional: removes default styling in some browsers */
-}  
+    -webkit-appearance: none; /* For older versions of Safari */
+    -moz-appearance: none; /* For Firefox */
+    padding-right: 30px; /* Space for the custom arrow */
+    width: 100%; /* Ensure full width */
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
 
-.select-gender:hover{
-    border-color: #4a5a3e;
-    box-shadow: 0px 0px 5px #60774f; 
+.form-select:focus{
+    border-color: #4a5a3e !important; /* Keep dark green border on focus */
+    box-shadow: 0px 0px 3px #60774f !important; 
+    outline: none; /* Remove default focus outline */
+}
+
+/* Style for dropdown options */
+.form-select option {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: #000;
+    padding: 14px;
+    max-width: 100%; /* Ensure options don't overflow */
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words if necessary */
+    font-size: 18px;
+}
+
+.btn-register{
+    background-color: var(--gold) !important; /* Set to black as the default */
+    border: 2px solid var(--dark-green) !important; /* Gold-yellow border */
+    color: black !important; /* Text color */
+    margin-top: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s; /* Animation effects */
+    font-family: 'Times New Roman', serif; /* Font */
+}
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .form-select {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .form-select option {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form-select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .form-select option {
+        padding-right: 24px; /* Adjust for even smaller arrow */
+    }
 }
