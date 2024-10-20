@@ -49,7 +49,6 @@
     gap: 20px; /* New: Use gap for consistent spacing */
     padding-left: 100px ;
     padding-right: 100px;
-
 }
 
 /* Offer Cards Styling */
@@ -58,7 +57,7 @@
     display: flex;
     flex-direction: column; /* Stack content vertically within the card */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animation on hover */
-    border: 1px solid var(--gold); /* Gold border for contrast */
+    border: 1px solid var(--dark-green); /* Gold border for contrast */
     background-color: white; /* White background for card content */
     border-radius: 10px; /* Rounded corners for a modern look */
     overflow: hidden; /* Hide overflow content */
@@ -67,7 +66,7 @@
     max-width: 100%; /* Ensure card doesn't exceed parent width */
     height: auto; /* Allow height to adjust based on content */
     font-family: 'Times New Roman', serif; /* Font */
-    font-size: 20px; 
+    font-size: 19px; 
 }
 
 /* New: Container for offer card content to manage layout */
@@ -109,7 +108,7 @@
     align-items: center;
     background-color: #f0f0f0;
     color: #666;
-    font-size: 18px;
+    font-size: 19px;
 }
 
 /* Hover effect for offer cards */
@@ -158,6 +157,7 @@
 /* Styling for Add Offer button */
 .add-custom-btn {
     margin-bottom: 20px; /* Space below the button */
+    padding: 9px;
 }
 
 /* Responsive button group */
@@ -171,7 +171,7 @@
 /* Small and responsive button */
 .custom-btn {
     padding: 8px 12px; /* Keep small padding for buttons */
-    font-size: 14px; /* Small font size */
+    font-size: 16px; /* Small font size */
     min-width: auto; /* Prevent button from expanding full width */
 }
 
@@ -179,11 +179,12 @@
 .btn-info.custom-btn,
 .btn-danger.custom-btn,
 .btn-success.add-custom-btn {
-    background-color: #b2925a !important; /* Set to gold as the default */
-    border: 2px solid #4a5a3e !important; /* Dark green border */
+    background-color: var(--gold) !important; /* Set to gold as the default */
+    border: 2px solid var(--dark-green)  !important; /* Dark green border */
     color: black; /* Text color */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s; /* Animation effects */
     font-family: 'Times New Roman', serif; /* Font */
+    font-size: 15px;
 }
 
 /* Hover effects for the buttons */
