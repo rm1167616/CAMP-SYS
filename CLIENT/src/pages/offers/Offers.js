@@ -120,28 +120,37 @@ const Offers = () => {
                 <Row className="justify-content-center mt-3">
                     {offers.map((offer) => (
                         <Col key={offer.id} xs={12} className="mb-4 animated-card">
-                            <Card className="offer-card" style={{ width: '100%' }}>
-                                <Carousel>
-                                    {(offer.images || []).map((image, index) => (
-                                        <Carousel.Item key={index}>
-                                            <img
-                                                className="fixed-size-image"
-                                                src={`http://localhost:4000/server/uploads/${image}`}
-                                                alt={`Offer Image ${index}`}
-                                                style={{ width: '100%' }}
-                                            />
-                                        </Carousel.Item>
-                                    ))}
-                                </Carousel>
-                                <Card.Body className="card-content">
-                                    <Card.Title> <strong>Offer:</strong> {offer.offerName}</Card.Title>
-                                    <Card.Text> <strong>Description:</strong> {offer.offerDescreption}</Card.Text> {/* Updated to match backend field */}
-                                    <Card.Text> <strong>Discount:</strong> {offer.offerDiscount}%</Card.Text>
-                                    <div className="button-group">
-                                        <Button className="me-2 custom-btn" variant="info"  onClick={() => handleShow(offer, true)}>Edit</Button>
-                                        <Button className="me-2 custom-btn" variant="danger" onClick={() => handleDelete(offer.id)}>Delete</Button>
+                            <Card className="offer-card">
+                                <div className="offer-card-content">
+                                    <div className="offer-card-image">
+                                        {offer.images && offer.images.length > 0 ? (
+                                            <Carousel>
+                                                {offer.images.map((image, index) => (
+                                                    <Carousel.Item key={index}>
+                                                        <img
+                                                            className="fixed-size-image"
+                                                            src={`http://localhost:4000/server/uploads/${image}`}
+                                                            alt={`Offer Image ${index}`}
+                                                        />
+                                                    </Carousel.Item>
+                                                ))}
+                                            </Carousel>
+                                        ) : (
+                                            <div className="empty-image-placeholder">
+                                                <span>No Image Available</span>
+                                            </div>
+                                        )}
                                     </div>
-                                </Card.Body>
+                                    <div className="card-content">
+                                        <Card.Title><strong>Offer:</strong> {offer.offerName}</Card.Title>
+                                        <Card.Text><strong>Description:</strong> {offer.offerDescreption}</Card.Text>
+                                        <Card.Text><strong>Discount:</strong> {offer.offerDiscount}%</Card.Text>
+                                        <div className="button-group">
+                                            <Button className="me-2 custom-btn" variant="info" onClick={() => handleShow(offer, true)}>Edit</Button>
+                                            <Button className="me-2 custom-btn" variant="danger" onClick={() => handleDelete(offer.id)}>Delete</Button>
+                                        </div>
+                                    </div>
+                                </div>
                             </Card>
                         </Col>
                     ))}
