@@ -1,4 +1,3 @@
-
 /* Global box-sizing to handle padding and prevent overflow issues */
 /* Ensures all elements respect padding, border, and content width */
 *,
@@ -7,42 +6,38 @@
     box-sizing: border-box !important;
 }
 
-
+/* Color scheme */
 /* 
-#4a5a3e
-#b2925a
+#4a5a3e - Dark green
+#b2925a - Gold
 */
-/* 
-html body{
-    background-color: #4a5a3e;
-} */
 
-.body{
-    background-color: #4a5a3e;
+/* New: Using CSS variables for easier color management */
+:root {
+    --dark-green: #4a5a3e;
+    --gold: #b2925a;
 }
 
+/* Body background color */
+.body {
+    background-color: var(--dark-green);
+}
 
 /* Main container for the offers */
 .offers-container {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: flex-end; /* Align items to the right */
-    margin-top: 10px; 
     width: 100%;
-    padding: 0 10px; /* Padding on left and right for smaller screens */
-    background-color: #4a5a3e; /* White background for offers container */
+    padding: 0 20px; /* Padding on left and right for smaller screens */
+    background-color: var(--dark-green); /* Dark green background for offers container */
 }
 
-/* Styling for the main heading inside the offers section*/
+/* Styling for the main heading inside the offers section */
 .offers-container h1 {
     text-align: center; /* Center the heading */
     width: 100%; /* Ensure it takes the full width */
 }
-
-/* 
-#4a5a3e
-#b2925a
-*/
 
 /* Container for the offer cards */
 /* The cards will be centered horizontally and can wrap if needed */
@@ -51,29 +46,69 @@ html body{
     justify-content: center; /* Center items horizontally */
     flex-wrap: wrap; /* Allow items to wrap if necessary */
     width: 100%; /* full width */
-    padding: 20px; /* Add padding for spacing */
-    background-color: #4a5a3e;
+    gap: 20px; /* New: Use gap for consistent spacing */
+    padding-left: 100px ;
+    padding-right: 100px;
 }
 
 /* Offer Cards Styling */
+/* Updated to use column layout for better structure */
 .offer-card {
-    display: flex; /* Make card content horizontal */
-    flex-direction: row; /* Arrange items in a row */
-    align-items: center; /* Center content vertically */
+    display: flex;
+    flex-direction: column; /* Stack content vertically within the card */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animation on hover */
-    border: 1px solid #b2925a; /* Black border for contrast */
+    border: 1px solid var(--dark-green); /* Gold border for contrast */
     background-color: white; /* White background for card content */
     border-radius: 10px; /* Rounded corners for a modern look */
     overflow: hidden; /* Hide overflow content */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    padding: 10px; /* Add some padding for better spacing */
-    width: 80%; /* Make card full width */
+    width: 100%; /* Make card 80% of container width */
     max-width: 100%; /* Ensure card doesn't exceed parent width */
-    box-sizing: border-box; /* Include padding and border in element's width */
-    height: 420px;
+    height: auto; /* Allow height to adjust based on content */
     font-family: 'Times New Roman', serif; /* Font */
-    font-size: 20px; 
+    font-size: 19px; 
+}
 
+/* New: Container for offer card content to manage layout */
+.offer-card-content {
+    display: flex;
+    flex-direction: row; /* Arrange image and text side by side */
+    height: 420px; /* Fixed height for consistent card size */
+}
+
+/* New: Container for offer card image/carousel */
+.offer-card-image {
+    width: 46%; /* New: Make image take half the card width */
+    min-height: 300px; /* New: Set a minimum height */
+    min-width: 250px;
+    height: 420px; /* Match height of offer-card-content */
+    flex-shrink: 0; /* Prevent image area from shrinking */
+}
+
+/* Carousel container with fixed height */
+/* Updated to match new structure */
+.carousel,
+.empty-image-placeholder {
+    width: 100%;
+    height: 100%;
+}
+
+/* Image styling inside the offer card with fixed size */
+/* Updated to fit within the new structure */
+.fixed-size-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover; /* Crop the image to fill the area without distorting */
+}
+
+/* New: Styling for empty image placeholder */
+.empty-image-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    color: #666;
+    font-size: 19px;
 }
 
 /* Hover effect for offer cards */
@@ -82,48 +117,22 @@ html body{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Intensify shadow on hover */
 }
 
+/* Card text content styling */
+/* Updated to allow scrolling if content overflows */
 .card-content {
-    flex-basis: 400px; /* Adjust based on your design */
-    max-width: 400px; /* Prevent content from resizing */
-}
-
-/* Carousel container with fixed height */
-.carousel {
-    height: 500px; /* Set a fixed height for the carousel */
-    position: relative; /* Keeps the content below fixed */
-}
-
-/* Disable Transition on Non-Images */
-.card-content {
-    flex: 1; /* Allow text content to take the remaining space */
-    max-width: 400px; /* Limit the width of the content */
-    transition: none !important; /* Disable transitions for the text content */
+    flex: 1; /* Allow text content to take remaining space */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center content vertically */
+    overflow-y: auto; /* Add vertical scrolling if content overflows */
 }
 
-/* Image styling inside the offer card with fixed size */
-.fixed-size-image {
-    width: 650px !important; /* Fixed width */
-    height: 500px !important; /* Force height */
-    object-fit: cover; /* Crop the image to fill the area without distorting */
-    margin-right: 15px; /* Space between image and text */
-    border-radius: 5px; /* Slightly rounded corners */
-    align-self: stretch; /* Ensure the image stretches if in a flex container */
-    box-sizing: border-box; /* Include padding and border in the element's width */
-}
-
-
-/* Card text content styling */
-.offer-card .card-content {
-    flex: 1; /* Allow text content to take remaining space */
-}
-
+/* Card title styling */
 .offer-card .card-title {
     color: black; /* Card title color */
     font-weight: bold; /* Bold font for emphasis */
-    border-bottom: 2px solid #b2925a; /* Gold-yellow underline */
+    border-bottom: 2px solid #b2925a; /* Gold underline */
     padding-bottom: 10px; /* Space below the title */
 }
 
@@ -148,6 +157,7 @@ html body{
 /* Styling for Add Offer button */
 .add-custom-btn {
     margin-bottom: 20px; /* Space below the button */
+    padding: 9px;
 }
 
 /* Responsive button group */
@@ -161,22 +171,20 @@ html body{
 /* Small and responsive button */
 .custom-btn {
     padding: 8px 12px; /* Keep small padding for buttons */
-    font-size: 14px; /* Small font size */
-    min-width: auto; /* Prevent button from 
-    expanding full width */
+    font-size: 16px; /* Small font size */
+    min-width: auto; /* Prevent button from expanding full width */
 }
-
 
 /* Custom Styles for Info, Danger, and Success Buttons */
 .btn-info.custom-btn,
 .btn-danger.custom-btn,
 .btn-success.add-custom-btn {
-    background-color: #b2925a !important; /* Set to black as the default */
-    border: 2px solid #4a5a3e !important; /* Gold-yellow border */
+    background-color: var(--gold) !important; /* Set to gold as the default */
+    border: 2px solid var(--dark-green)  !important; /* Dark green border */
     color: black; /* Text color */
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s; /* Animation effects */
     font-family: 'Times New Roman', serif; /* Font */
-    
+    font-size: 15px;
 }
 
 /* Hover effects for the buttons */
@@ -187,12 +195,10 @@ html body{
     transform: translateY(-3px); /* Lift button slightly on hover */
 }
 
-
 /* Form */
-.modal-content{
+.modal-content {
     background-color: rgba(255, 255, 255, 0.8);
 }
-
 
 /* Media Queries for Smaller Screens */
 @media only screen and (max-width: 768px) {
@@ -207,15 +213,24 @@ html body{
     .offer-card {
         width: 100%; /* Full width for each card */
         margin-left: 0; /* Remove left margin */
-        height: auto; /* Auto height */
-        flex-direction: column; /* Stack content vertically */
     }
-    
+
+    /* New: Adjust offer card content for smaller screens */
+    .offer-card-content {
+        flex-direction: column; /* Stack image and content vertically */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    /* New: Adjust image container for smaller screens */
+    .offer-card-image {
+        width: 100%; /* Full width */
+        height: 300px; /* Reduced height for smaller screens */
+    }
 
     /* Adjust image inside offer card */
-    .fixed-size-image {
-        width: 100%; /* Full width */
-        height: auto; /* Maintain aspect ratio */
+    .fixed-size-image,
+    .empty-image-placeholder {
+        height: 300px; /* Match height of offer-card-image */
     }
 
     /* Make buttons responsive and small */
@@ -242,9 +257,14 @@ html body{
 
 /* For even smaller screens (up to 480px) */
 @media only screen and (max-width: 480px) {
-    .fixed-size-image {
-        width: 100%; /* Full width for the smallest screens */
-        height: 300px; /* Further reduce the height for very small screens */
+    /* Further reduce image size for very small screens */
+    .offer-card-image {
+        height: 200px;
+    }
+
+    .fixed-size-image,
+    .empty-image-placeholder {
+        height: 200px;
     }
 
     /* Offer card adjustments for very small screens */
@@ -259,7 +279,7 @@ html body{
         font-size: 16px; /* Further reduce font size */
         padding: 4px 8px; /* Smaller padding */
     }
-s
+
     /* Adjust text */
     .offer-card .card-title,
     .offer-card .card-text {

@@ -136,8 +136,8 @@ const Register = () => {
             </Form.Group>
 
             {/* Gender Input (Dropdown) */}
-            <Form.Group className="mb-3 w-100">
-            <Form.Select className = "select-gender"
+            <Form.Group className="select-gender mb-3 w-100">
+            <Form.Select 
                 value={register.gender}
                 onChange={(e) => setRegister({ ...register, gender: e.target.value })}>
                 <option value="">Select Gender</option>
@@ -184,7 +184,7 @@ const Register = () => {
             </Form.Group>
 
             <Button
-                className="btn btn-login w-25"
+                className="btn btn-register w-25"
                 variant="primary"
                 type="submit"
                 disabled={register.loading === true}>
