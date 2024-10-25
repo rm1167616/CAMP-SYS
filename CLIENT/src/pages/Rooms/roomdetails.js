@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Button, Row, Col, Form, Carousel, Modal } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faBed, faWifi, faTv, faCoffee, faConciergeBell, faParking } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RoomCard = ({ room, onDelete, onUpdate }) => {
@@ -38,10 +40,10 @@ const RoomCard = ({ room, onDelete, onUpdate }) => {
             <Card.Title className="font-weight-bold">{room.title}</Card.Title>
             <Row className="mb-2">
               <Col>
-                <i className="fas fa-user"></i> {room.people} People
+                <FontAwesomeIcon icon={faUser} /> {room.people} People
               </Col>
               <Col>
-                <i className="fas fa-bed"></i> {room.bed}
+                <FontAwesomeIcon icon={faBed} /> {room.bed}
               </Col>
             </Row>
             <Card.Text>{room.description}</Card.Text>
@@ -60,24 +62,19 @@ const RoomCard = ({ room, onDelete, onUpdate }) => {
               <div className="mt-3">
                 <h5>Room Features</h5>
                 <ul>
-                  <li>
-                    <i className="fas fa-wifi"></i> Free Wi-Fi
-                  </li>
-                  <li>
-                    <i className="fas fa-tv"></i> Satellite TV
-                  </li>
-                  <li>
-                    <i className="fas fa-coffee"></i> Coffee/Tea Maker
-                  </li>
+                  {room.includedServices.map((service, index) => (
+                    <li key={index}>
+                      <i className={service.icon}></i> {service.label}
+                    </li>
+                  ))}
                 </ul>
                 <h5>Excluded Services</h5>
                 <ul>
-                  <li>
-                    <i className="fas fa-concierge-bell"></i> Room Service
-                  </li>
-                  <li>
-                    <i className="fas fa-parking"></i> Paid Parking
-                  </li>
+                  {room.excludedServices.map((service, index) => (
+                    <li key={index}>
+                      <i className={service.icon}></i> {service.label}
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
@@ -116,7 +113,7 @@ const RoomCard = ({ room, onDelete, onUpdate }) => {
 
       {/* Update and Delete Buttons */}
       <Row>
-        <Col md={12} className="p-2" style={{marginLeft:'10px'}}>
+        <Col md={12} className="p-2" style={{ marginLeft: '10px' }}>
           <Button className="mb-4" onClick={() => onUpdate(room)}>Update</Button>
           <Button className="mb-4" onClick={() => onDelete(room.id)}>Delete</Button>
         </Col>
@@ -139,15 +136,23 @@ const RoomCardManager = () => {
     originalPrice: '',
     discountPrice: '',
     rateOptions: [],
+    includedServices: [{ label: '', icon: '' }],
+    excludedServices: [{ label: '', icon: '' }],
   });
 
-  const toggleRateOption = (option) => {
+  const handleAddService = (type) => {
+    setNewRoom((prevRoom) => ({
+      ...prevRoom,
+      [type]: [...prevRoom[type], { label: '', icon: '' }],
+    }));
+  };
+
+  const handleServiceChange = (type, index, key, value) => {
     setNewRoom((prevRoom) => {
-      if (prevRoom.rateOptions.includes(option)) {
-        return { ...prevRoom, rateOptions: prevRoom.rateOptions.filter((opt) => opt !== option) };
-      } else {
-        return { ...prevRoom, rateOptions: [...prevRoom.rateOptions, option] };
-      }
+      const updatedServices = prevRoom[type].map((service, idx) =>
+        idx === index ? { ...service, [key]: value } : service
+      );
+      return { ...prevRoom, [type]: updatedServices };
     });
   };
 
@@ -159,7 +164,7 @@ const RoomCardManager = () => {
         )
       );
     } else {
-      setRooms([...rooms, { ...newRoom, id: Date.now(), toggleRateOption }]);
+      setRooms([...rooms, { ...newRoom, id: Date.now() }]);
     }
     setShowModal(false);
     setEditingRoom(null);
@@ -177,17 +182,9 @@ const RoomCardManager = () => {
       originalPrice: '',
       discountPrice: '',
       rateOptions: [],
+      includedServices: [{ label: '', icon: '' }],
+      excludedServices: [{ label: '', icon: '' }],
     });
-  };
-
-  const handleUpdateRoom = (room) => {
-    setNewRoom(room);
-    setEditingRoom(room);
-    setShowModal(true);
-  };
-
-  const handleDeleteRoom = (id) => {
-    setRooms(rooms.filter((room) => room.id !== id));
   };
 
   return (
@@ -207,7 +204,7 @@ const RoomCardManager = () => {
 
       {/* Room Cards */}
       {rooms.map((room) => (
-        <RoomCard key={room.id} room={room} onDelete={handleDeleteRoom} onUpdate={handleUpdateRoom} />
+        <RoomCard key={room.id} room={room} onDelete={(id) => setRooms(rooms.filter((room) => room.id !== id))} onUpdate={setEditingRoom} />
       ))}
 
       {/* Modal for Adding/Updating Room */}
@@ -217,6 +214,7 @@ const RoomCardManager = () => {
         </Modal.Header>
         <Modal.Body>
           <Form>
+            {/* Room Details Fields */}
             <Form.Group>
               <Form.Label>Room Title</Form.Label>
               <Form.Control
@@ -250,6 +248,44 @@ const RoomCardManager = () => {
                 onChange={(e) => setNewRoom({ ...newRoom, description: e.target.value })}
               />
             </Form.Group>
+
+            {/* Include Services Fields */}
+            <Form.Group>
+              <Form.Label>Included Services</Form.Label>
+              {newRoom.includedServices.map((service, index) => (
+                <div key={index} className="d-flex mb-2">
+                  <Form.Control
+                    type="text"
+                    placeholder="Service Name"
+                    value={service.label}
+                    onChange={(e) =>
+                      handleServiceChange('includedServices', index, 'label', e.target.value)
+                    }
+                  />
+
+                </div>
+              ))}
+              <Button onClick={() => handleAddService('includedServices')}>Add Included Service</Button>
+            </Form.Group>
+
+            {/* Exclude Services Fields */}
+            <Form.Group>
+              <Form.Label>Excluded Services</Form.Label>
+              {newRoom.excludedServices.map((service, index) => (
+                <div key={index} className="d-flex mb-2">
+                  <Form.Control
+                    type="text"
+                    placeholder="Service Name"
+                    value={service.label}
+                    onChange={(e) =>
+                      handleServiceChange('excludedServices', index, 'label', e.target.value)
+                    }
+                  />
+    
+                </div>
+              ))}
+              <Button onClick={() => handleAddService('excludedServices')}>Add Excluded Service</Button>
+            </Form.Group>
             <Form.Group>
               <Form.Label>Original Price</Form.Label>
               <Form.Control
@@ -281,16 +317,12 @@ const RoomCardManager = () => {
                 }
               />
             </Form.Group>
+
+            <Button variant="success" onClick={handleAddRoom} style={{marginTop:'10px'}}>
+              {editingRoom ? 'Update Room' : 'Add Room'}
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleAddRoom}>
-            {editingRoom ? 'Update Room' : 'Add Room'}
-          </Button>
-        </Modal.Footer>
       </Modal>
     </div>
   );

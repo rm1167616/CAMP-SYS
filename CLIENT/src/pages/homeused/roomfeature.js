@@ -39,7 +39,7 @@ const RoomFeatures = () => {
         <Row className="justify-content-center">
           {/* Left Section - Centered Vertically and Horizontally */}
           <Col xs={12} md={6} className="d-flex justify-content-center align-items-center">
-            <div ref={leftSectionRef} className="text-left">
+            <div ref={leftSectionRef} className="text-left" style={{marginLeft:'20px'}}>
               <h6>STAY WITH US</h6>
               <h2>About Our Rooms</h2>
               <p>

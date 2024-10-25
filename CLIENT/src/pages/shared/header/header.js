@@ -37,7 +37,7 @@ const Header = () => {
           
           <div className='Items'>
           <Nav.Item>
-            <Nav.Link href="#stay" className="text-warning" data-animation ="slideInDown" style={{animationDelay: "0.2s"}}>
+            <Nav.Link href="/RoomDetails" className="text-warning" data-animation ="slideInDown" style={{animationDelay: "0.2s"}}>
               Stay
             </Nav.Link>
           </Nav.Item>

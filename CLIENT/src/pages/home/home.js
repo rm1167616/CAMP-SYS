@@ -57,16 +57,16 @@ const HomePage = () => {
 
 
 
-      <div>
+      <div style={{marginTop:'30px'}}> 
             {/* Section 1 */}
             <section className="testimonial-section">
                 <ul>
                     <div>
                         <div className="testimonial-item">
                             <li>
-                                <div className="testimonial-content">
-                                    <h5>J Andrews</h5>
-                                    <h2>"Our newly refurbished room was fantastic with beautiful views."</h2>
+                                <div className="testimonial-content ">
+                                    <h5 style={{color:'white'}}>J Andrews</h5>
+                                    <h2 style={{color:'#b2925a'}}>"Our newly refurbished room was fantastic with beautiful views."</h2>
                                 </div>
                             </li>
                         </div>
